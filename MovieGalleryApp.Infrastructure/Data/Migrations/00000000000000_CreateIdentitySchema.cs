@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace MovieGalleryApp.Web.Data.Migrations
+namespace MovieGalleryApp.Infrastructure.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
