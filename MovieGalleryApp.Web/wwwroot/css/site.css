@@ -1,18 +1,11 @@
-html {
-  font-size: 14px;
+.margin-top {
+    margin-top: 10px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.login-page {
+    background-color: #262626;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
+.card-primary.card-outline {
+    border-top: 3px solid #ff0000;
 }
