@@ -6,6 +6,14 @@
     background-color: #262626;
 }
 
+.register-page {
+    background-color: #262626;
+}
+
 .card-primary.card-outline {
     border-top: 3px solid #ff0000;
+}
+
+.label-width {
+    width: 500px;
 }
