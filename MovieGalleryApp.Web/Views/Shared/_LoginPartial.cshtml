@@ -6,23 +6,31 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-        </li>
-        <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-        <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-        </li>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+    </li>
+    <li class="nav-item">
 
+    </li>
     <div class="profile-container">
+        @*Image*@
         <img class="profile-picture" src="~/img/profile.jpg" alt="">
-        <div class="profile-text-container">
-            <span class="profile-text">Profile</span>
-            <i class="fas fa-caret-down"></i>
+
+        @*Dropdown Profile Button*@
+        <div class="button-container">
+            <button class="button-click">Profile</button>
+            <div class="button-list">
+                @*<button class="button-links">Profile</button>*@
+
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button class="button-links">Logout</button>
+                </form>
+            </div>
         </div>
+
+        @*Dark/Light mode toggle*@
         <div class="toggle">
-            <i class="fas fa-moon toggle-icon"></i>
             <i class="fas fa-sun toggle-icon"></i>
+            <i class="fas fa-moon toggle-icon"></i>
             <div class="toggle-ball"></div>
         </div>
     </div>

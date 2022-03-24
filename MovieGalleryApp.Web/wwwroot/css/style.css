@@ -28,8 +28,10 @@ body {
 }
 
 .logo {
-  font-size: 30px;
-  color: #4dbf00;
+    font-size: 30px;
+    color: #4dbf00;
+    white-space: nowrap;
+    text-decoration: none;
 }
 
 .menu-container {
@@ -67,14 +69,15 @@ body {
 }
 
 .toggle {
-  width: 40px;
-  height: 20px;
-  background-color: white;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin-left: 15px;
 }
 
 .toggle-icon {

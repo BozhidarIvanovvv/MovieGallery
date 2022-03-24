@@ -1,0 +1,44 @@
+﻿.button-container {
+    width: 90px;
+    position: relative;
+    margin-left: 15px;
+}
+
+.button-click {
+    background-color: #f85f73;
+}
+
+.click:hover {
+    background-color: #B71C1C;
+}
+
+.button-click, .button-links {
+    padding: 5px;
+    font-size: 1.2em;
+    font-family: futura Md BT;
+    border: none;
+    outline: none;
+    width: 90px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.button-list {
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+
+.newlist {
+    transform: scaleY(1);
+}
+
+.button-links {
+    background-color: #283c63;
+}
+
+.links:hover {
+    background-color: #01579B;
+    transform: scale(1.1);
+}
