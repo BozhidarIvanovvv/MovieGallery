@@ -19,6 +19,10 @@ namespace MovieGalleryApp.Infrastructure.Data
         public string Title { get; set; }
 
         [Required]
+        [StringLength(MovieEntityConstants.ImgUrlMaxLength)]
+        public string ImgUrl { get; set; }
+
+        [Required]
         [StringLength(MovieEntityConstants.DescriptionMaxLength)]
         public string Description { get; set; }
 

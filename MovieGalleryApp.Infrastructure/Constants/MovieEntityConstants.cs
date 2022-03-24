@@ -9,6 +9,7 @@ namespace MovieGalleryApp.Infrastructure.Constants
     public static class MovieEntityConstants
     {
         public const int TitleMaxLength = 208;
+        public const int ImgUrlMaxLength = 2048;
         public const int DescriptionMaxLength = 1000;
         public const int BudgetMaxLength = 50;
 
