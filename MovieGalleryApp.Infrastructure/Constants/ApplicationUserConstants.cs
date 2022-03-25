@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace MovieGalleryApp.Infrastructure.Constants
 {
-    public static class GenreEntityConstants
+    public static class ApplicationUserConstants
     {
-        public const int TitleMaxLength = 20;
+        public const int FirstNameMaxLength = 100;
+        public const int LastNameMaxLength = 100;
     }
 }

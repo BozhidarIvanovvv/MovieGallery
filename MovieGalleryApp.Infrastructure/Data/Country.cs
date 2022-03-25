@@ -14,7 +14,7 @@ namespace MovieGalleryApp.Infrastructure.Data
         public Guid CountryId { get; set; } = Guid.NewGuid();
 
         [Required]
-        [StringLength(CountryEntityConstants.NameMaxLength)]
+        [StringLength(DatabaseConstants.CountryEntityConstants.NameMaxLength)]
         public string CountryName { get; set; }
 
         public ICollection<MovieCountry> MovieCountries { get; set; } = new List<MovieCountry>();

@@ -15,19 +15,19 @@ namespace MovieGalleryApp.Infrastructure.Data
         public Guid MovieId { get; set; } = Guid.NewGuid();
     
         [Required]
-        [StringLength(MovieEntityConstants.TitleMaxLength)]
+        [StringLength(DatabaseConstants.MovieEntityConstants.TitleMaxLength)]
         public string Title { get; set; }
 
         [Required]
-        [StringLength(MovieEntityConstants.ImgUrlMaxLength)]
+        [StringLength(DatabaseConstants.MovieEntityConstants.ImgUrlMaxLength)]
         public string ImgUrl { get; set; }
 
         [Required]
-        [StringLength(MovieEntityConstants.DescriptionMaxLength)]
+        [StringLength(DatabaseConstants.MovieEntityConstants.DescriptionMaxLength)]
         public string Description { get; set; }
 
         [Required]
-        [StringLength(MovieEntityConstants.BudgetMaxLength)]
+        [StringLength(DatabaseConstants.MovieEntityConstants.BudgetMaxLength)]
         public string Budget { get; set; }
 
         [Required]
@@ -35,7 +35,8 @@ namespace MovieGalleryApp.Infrastructure.Data
         public DateTime ReleaseDate { get; set; }
 
         [Required]
-        [Range(MovieEntityConstants.RatingMinValue, MovieEntityConstants.RatingMaxValue)]
+        [Range(DatabaseConstants.MovieEntityConstants.RatingMinValue,
+            DatabaseConstants.MovieEntityConstants.RatingMaxValue)]
         public double Rating { get; set; }
 
         public ICollection<MovieGenre> MovieGenres { get; set; } = new List<MovieGenre>();

@@ -14,7 +14,7 @@ namespace MovieGalleryApp.Infrastructure.Data
         public Guid GenreId { get; set; } = Guid.NewGuid();
 
         [Required]
-        [StringLength(GenreEntityConstants.TitleMaxLength)]
+        [StringLength(DatabaseConstants.GenreEntityConstants.TitleMaxLength)]
         public string GenreTitle { get; set; }
 
         public ICollection<MovieGenre> MovieGenres { get; set; } = new List<MovieGenre>();
