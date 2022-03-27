@@ -2,6 +2,7 @@
 using MovieGalleryApp.Core.Contracts;
 using MovieGalleryApp.Core.Services;
 using MovieGalleryApp.Infrastructure.Data;
+using MovieGalleryApp.Infrastructure.Data.Repositories;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -9,6 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services) 
         {
+            services.AddScoped<IApplicationDbRepository, ApplicationDbRepository>();
             services.AddScoped<IUserService, UserService>();
             
             return services;
