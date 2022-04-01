@@ -18,9 +18,13 @@
 
         @*Dropdown Profile Button*@
         <div class="button-container">
-            <button class="button-click">Profile</button>
+            <button class="button-click">Settings</button>
             <div class="button-list">
                 @*<button class="button-links">Profile</button>*@
+
+                <form class="form-inline" asp-area="Admin" asp-controller="User" asp-action="ManageUsers">
+                    <button class="button-links">Admin</button>
+                </form>
 
                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                     <button class="button-links">Logout</button>
