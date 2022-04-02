@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieGalleryApp.Core.Contracts;
 using MovieGalleryApp.Core.Models;
 using MovieGalleryApp.Infrastructure.Identity;
@@ -54,6 +55,41 @@ namespace MovieGalleryApp.Web.Areas.Admin.Controllers
             await _userService.UpdateUser(model);
 
             return Redirect("/Admin/User/ManageUsers");
+        }
+
+        public async Task<IActionResult> Delete(string id) 
+        {
+            var user = await _userService.GetUserById(id);
+            
+            await _userManager.DeleteAsync(user);
+
+            if (await _userService.GetUserById(id) == null)
+            {
+                // Implement Error message!
+            }
+
+            return Redirect("/Admin/User/ManageUsers");
+        }
+
+        public async Task<IActionResult> Roles(string id)
+        {
+            var user = await _userService.GetUserById(id);
+            var model = new UserRolesVM()
+            {
+                UserId = user.Id,
+                Name = $"{user.FirstName} {user.LastName}"
+            };
+
+            ViewBag.RoleItems = _roleManager.Roles
+                .ToList()
+                .Select(r => new SelectListItem()
+                {
+                    Text = r.Name,
+                    Value = r.Name,
+                    Selected = _userManager.IsInRoleAsync(user, r.Name).Result
+                }).ToList();
+
+            return View(model);
         }
 
         //public async Task<IActionResult> CreateRole()

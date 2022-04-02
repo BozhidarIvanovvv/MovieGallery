@@ -29,6 +29,10 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Movie\Controllers\" />
+    <Folder Include="Areas\Movie\Data\" />
+    <Folder Include="Areas\Movie\Models\" />
+    <Folder Include="Areas\Movie\Views\" />
   </ItemGroup>
 
 </Project>

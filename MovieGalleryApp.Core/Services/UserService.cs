@@ -20,6 +20,28 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
+        public async Task<bool> DeleteUser(string id)
+        {
+            bool result = false;
+
+            await _repo.DeleteAsync<ApplicationUser>(id);
+
+            var user = await _repo.GetByIdAsync<ApplicationUser>(id);
+
+            if (user == null)
+            {
+                result = true;
+                return result;
+            }
+
+            return result;
+        }
+
+        public async Task<ApplicationUser> GetUserById(string id)
+        {
+            return await _repo.GetByIdAsync<ApplicationUser>(id);
+        }
+
         public async Task<UserEditVM> GetUserForEdit(string id)
         {
             var user = await _repo.GetByIdAsync<ApplicationUser>(id);

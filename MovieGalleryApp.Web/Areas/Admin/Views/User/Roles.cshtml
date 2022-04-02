@@ -1,0 +1,29 @@
+﻿@using MovieGalleryApp.Core.Models
+@model UserRolesVM
+@{
+    ViewData["Title"] = "User Roles";
+    var items = (List<SelectListItem>)ViewBag.RoleItems;
+}
+
+<div class="row">
+    <div class="col-4">
+        <form id="roles" method="post">
+            <input type="hidden" name="Id" value="@Model.UserId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <h5>User: @Html.DisplayFor(m => m.Name)</h5>
+            </div>
+            <div class="form-floating">
+                <label>User Roles</label>
+                <select asp-for="RoleNames" asp-items="@items" class="form-control">
+                </select>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="col-4">
+                    <button id="login-submit" type="submit" class="btn btn-primary btn-block">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
