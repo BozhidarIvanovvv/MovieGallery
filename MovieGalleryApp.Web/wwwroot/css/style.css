@@ -193,9 +193,12 @@ body {
 }
 
 .movie-list-item-title {
+    text-align: center;
+    height: 31px;
+    width: 230px;
     background-color: #333;
-    padding: 0 10px;
-    font-size: 32px;
+    padding: 5px 10px;
+    font-size: 15px;
     font-weight: bold;
     position: absolute;
     top: 10%;
@@ -207,6 +210,7 @@ body {
 .movie-list-item-desc {
     background-color: #333;
     padding: 10px;
+    padding-top: 20px;
     font-size: 14px;
     position: absolute;
     top: 30%;
@@ -214,21 +218,21 @@ body {
     width: 230px;
     opacity: 0;
     transition: 1s all ease-in-out;
+    height: 150px;
 }
 
 .movie-list-item-button {
+    text-decoration: none;
+    position: relative;
     padding: 10px;
     background-color: #4dbf00;
     color: white;
     border-radius: 10px;
     outline: none;
-    border: none;
     cursor: pointer;
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
     opacity: 0;
     transition: 1s all ease-in-out;
+    left: 225px;
 }
 
 .arrow {
