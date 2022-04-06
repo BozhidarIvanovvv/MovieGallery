@@ -45,4 +45,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
+ApplicationDbInitializer.Seed(app);
+
 app.Run();
