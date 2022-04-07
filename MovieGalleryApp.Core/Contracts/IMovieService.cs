@@ -10,5 +10,7 @@ namespace MovieGalleryApp.Core.Contracts
     public interface IMovieService 
     {
         Task<IEnumerable<MovieMainPageVM>> GetMoviesByGenre(string genre);
+
+        Task<MovieDetailsVM> GetMovieById(Guid id);
     }
 }

@@ -1,25 +1,24 @@
 ﻿@using MovieGalleryApp.Core.Models.Movie
-@model ICollection<MovieMainPageVM>
+@model IEnumerable<IEnumerable<MovieMainPageVM>>
 @{
     ViewData["Title"] = "Movie Gallery";
+    var topMovie = Model.Last().OrderBy(a => Guid.NewGuid()).First();
 }
 
 <div class="content-container">
     <div class="featured-content"
-         style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/f-1.jpg');">
-        <img class="featured-title" src="~/img/f-t-1.png" alt="">
+         style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('@topMovie.ImgUrl');">
+        <img class="featured-title" src="@topMovie.ImgUrl" alt="">
         <p class="featured-desc">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor
-            deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis
-            minima voluptatibus incidunt. Accusamus, provident.
+            @topMovie.Description
         </p>
-        <button class="featured-button">WATCH</button>
+        <a class="featured-button" asp-controller="Home" asp-action="Details" asp-route-id="@topMovie.Id">Details</a>
     </div>
     <div class="movie-list-container">
         <h1 class="movie-list-title">Action Movies</h1>
         <div class="movie-list-wrapper">
             <div class="movie-list">
-                @foreach (var movie in Model)
+                @foreach (var movie in Model.First())
                 {
                     <div class="movie-list-item">
                         <img class="movie-list-item-img" src="@movie.ImgUrl" alt="">
@@ -27,136 +26,28 @@
                         <p class="movie-list-item-desc">
                             @movie.Description
                         </p>
-                        <button class="movie-list-item-button">Details</button>
+                        <a class="movie-list-item-button" asp-controller="Home" asp-action="Details" asp-route-id="@movie.Id">Details</a>
                     </div>
                 }
-
-                @*
-                    <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/2.jpeg" alt="">
-                    <span class="movie-list-item-title">Star Wars</span>
-                    <p class="movie-list-item-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                    hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                    </div>
-                    <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/3.jpg" alt="">
-                    <span class="movie-list-item-title">Storm</span>
-                    <p class="movie-list-item-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                    hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                    </div>
-                    <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/4.jpg" alt="">
-                    <span class="movie-list-item-title">1917</span>
-                    <p class="movie-list-item-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                    hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                    </div>
-                    <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/5.jpg" alt="">
-                    <span class="movie-list-item-title">Avengers</span>
-                    <p class="movie-list-item-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                    hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                    </div>
-                    <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/6.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                    hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                    </div>
-                    <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/7.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                    hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                    </div>*@
             </div>
-            @*<i class="fas fa-chevron-right arrow"></i>*@
+            <i class="fas fa-chevron-right arrow"></i>
         </div>
     </div>
     <div class="movie-list-container">
-        <h1 class="movie-list-title">NEW RELEASES</h1>
+        <h1 class="movie-list-title">Fantasy Movies</h1>
         <div class="movie-list-wrapper">
             <div class="movie-list">
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/8.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/9.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/10.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/11.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/12.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/1.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/1.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
+                @foreach (var movie in Model.Last())
+                {
+                    <div class="movie-list-item">
+                        <img class="movie-list-item-img" src="@movie.ImgUrl" alt="">
+                        <span class="movie-list-item-title">@movie.Title</span>
+                        <p class="movie-list-item-desc">
+                            @movie.Description
+                        </p>
+                        <a class="movie-list-item-button" asp-controller="Home" asp-action="Details" asp-route-id="@movie.Id">Details</a>
+                    </div>
+                }
             </div>
             <i class="fas fa-chevron-right arrow"></i>
         </div>

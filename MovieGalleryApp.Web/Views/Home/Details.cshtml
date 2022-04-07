@@ -1,0 +1,27 @@
+﻿@using MovieGalleryApp.Core.Models.Movie
+@model MovieDetailsVM
+@{
+}
+
+<div class="details-body">
+    <div class="details-wrapper">
+        <div class="details-container">
+                <img class="details-cover" src="@Model.ImgUrl" alt="">
+            <div class="details-content">
+                <div class="details-nav">
+                    <span class="details-logo">@Model.Title</span>
+                </div>
+                <div class="details-content-body">
+                    <div class="details-black-label">
+                        <p class="details-description">@Model.Description</p>
+                        <span class="details-title"><b>Released: @Model.ReleaseDate.ToShortDateString()</b></span>
+                        <div class="details-prix">
+                            <span class="details-span"><b class="details-budget">Budget: @Model.Budget</b></span>
+                            <span class="details-crt">Rating: @Model.Rating / 10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

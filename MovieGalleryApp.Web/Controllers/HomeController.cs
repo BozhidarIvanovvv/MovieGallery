@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MovieGalleryApp.Core.Contracts;
+using MovieGalleryApp.Core.Models.Movie;
 using MovieGalleryApp.Web.Models;
 using System.Diagnostics;
+using System.Linq;
 
 namespace MovieGalleryApp.Web.Controllers
 {
@@ -21,9 +23,23 @@ namespace MovieGalleryApp.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var moviesByGenre = await _movieService.GetMoviesByGenre("Action");
+            var actionMovies = await _movieService.GetMoviesByGenre("Action");
+            var fantasyMovies = await _movieService.GetMoviesByGenre("Fantasy");
 
-            return View(moviesByGenre);
+            var model = new List<IEnumerable<MovieMainPageVM>>() 
+            {
+                actionMovies.OrderBy(a => Guid.NewGuid()).ToList(),
+                fantasyMovies.OrderBy(a => Guid.NewGuid()).ToList()
+            };
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> Details(Guid Id) 
+        {
+            var movie = await _movieService.GetMovieById(Id);
+            
+            return View(movie);
         }
 
         public IActionResult Privacy()

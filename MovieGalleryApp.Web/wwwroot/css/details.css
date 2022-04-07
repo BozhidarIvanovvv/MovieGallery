@@ -1,0 +1,114 @@
+﻿.details-body{
+    margin:0;
+    padding:0;
+    font-family: 'Roboto', sans-serif;
+}
+.details-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.details-container {
+    width: 80%;
+    display: grid;
+    grid-template-areas: "cover content";
+    box-shadow: -2px 0px 33px 0px rgba(0,0,0,0.75);
+}
+
+.details-budget{
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+}
+
+.details-logo {
+    text-align: center;
+    font-size: 50px;
+    padding-top: 20px;
+}
+
+.details-cover {
+    max-width: 100%;
+    grid-area: cover;
+    height: 80vh;
+    background-image: url('images/cover.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+.details-content {
+    grid-area: content;
+    background: #efefef;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+}
+.details-nav {
+    margin: auto;
+    color: black;
+}
+.details-content-body {
+    padding-left: 100px;
+    display: flex;
+    flex-direction: row;
+}
+.details-pages {
+    width: 20%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    color: gray;
+    position: relative;
+    transform: translateY(38px);
+}
+    .details-pages span {
+        margin-top: 15px;
+    }
+.details-black-label {
+    width: 80%;
+}
+    .details-black-label p {
+        font-size: 40px;
+        color: gray;
+        width: 70%;
+    }
+.details-title {
+    display: block;
+    margin-top: 50px;
+    color: gray;
+    font-size: 20px;
+}
+.details-prix {
+    margin: 50px 0px;
+    display: flex;
+    justify-content: space-between;
+    border-left: 4px solid rgb(255,177,33);
+}
+    .details-prix span {
+        padding-left: 10px;
+    }
+.details-crt {
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+}
+.details-active {
+    color: black;
+    position: relative;
+    transform: translateX(60px);
+}
+    .details-active::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 67px;
+        right: 117%;
+        top: 45%;
+        height: .2em;
+        min-height: 1px;
+        z-index: 1;
+    }

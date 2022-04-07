@@ -20,6 +20,27 @@ namespace MovieGalleryApp.Core.Services
         {
             _repo = repo;
         }
+
+        public async Task<MovieDetailsVM> GetMovieById(Guid id)
+        {
+            var movie = await _repo.GetByIdAsync<Movie>(id);
+
+            if (movie == null)
+            {
+                throw new ArgumentException("This movie doesn't exist!");
+            }
+
+            return new MovieDetailsVM() {
+                Id = movie.MovieId,
+                Title = movie.Title,
+                ImgUrl = movie.ImgUrl,
+                Budget = movie.Budget,
+                Description = movie.Description,
+                Rating = movie.Rating,
+                ReleaseDate = movie.ReleaseDate
+            };
+        }
+
         public async Task<IEnumerable<MovieMainPageVM>> GetMoviesByGenre(string genreTitle)
         {
             if (!Enum.IsDefined(typeof(Enums.Genre), genreTitle))
@@ -44,7 +65,6 @@ namespace MovieGalleryApp.Core.Services
                     Description = mg.Movie.Description,
                     ImgUrl = mg.Movie.ImgUrl,
                 })
-                .Take(6)
                 .ToArrayAsync();
 
             return movies;
