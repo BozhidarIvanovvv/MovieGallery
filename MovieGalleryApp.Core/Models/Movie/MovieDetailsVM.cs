@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MovieGalleryApp.Core.Models.Genre;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieGalleryApp.Core.Models.Movie
 {
@@ -28,5 +24,8 @@ namespace MovieGalleryApp.Core.Models.Movie
 
         [Required]
         public double Rating { get; set; }
+
+        [Required]
+        public string Genres { get; set; }
     }
 }

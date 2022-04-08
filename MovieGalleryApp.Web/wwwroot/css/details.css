@@ -23,6 +23,14 @@
     color: black;
 }
 
+.details-genres {
+    font-weight: bold;
+    margin-top: 40px;
+    font-size: 20px;
+    color: gray;
+    width: 100%;
+}
+
 .details-logo {
     text-align: center;
     font-size: 50px;
@@ -71,11 +79,13 @@
 .details-black-label {
     width: 80%;
 }
-    .details-black-label p {
-        font-size: 40px;
-        color: gray;
-        width: 70%;
-    }
+
+.details-description {
+    font-size: 40px;
+    color: gray;
+    width: 70%;
+}
+
 .details-title {
     display: block;
     margin-top: 50px;
