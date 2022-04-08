@@ -481,17 +481,214 @@ namespace MovieGalleryApp.Infrastructure.Data
                     });
                 }
 
-                ////Actors
-                //if (!context.Actors.Any())
-                //{
-                //    context.Actors.AddRange(new List<Actor>()
-                //    {
-                //        new Actor()
-                //        {
-                //            FirstName = ""                        
-                //        }
-                //    });
-                //}
+                //Actors
+                if (!context.Actors.Any())
+                {
+                    context.Actors.AddRange(new List<Actor>()
+                    {
+                        // The Batman
+                        new Actor()
+                        {
+                            FirstName = "Robert",
+                            LastName = "Pattinson",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BNzk0MDQ5OTUxMV5BMl5BanBnXkFtZTcwMDM5ODk5Mg@@._V1_UY1200_CR136,0,630,1200_AL_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Zoë",
+                            LastName = "Kravitz",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BM2NmMWViOTYtOGJhYi00MzU2LWI5ODYtOGJhYzhkMWViODY5XkEyXkFqcGdeQXVyNjk2NTA3MTc@._V1_UY1200_CR80,0,630,1200_AL_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Paul",
+                            LastName = "Dano",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMjMwMzE1OTc0OF5BMl5BanBnXkFtZTcwMDU2NTg0Nw@@._V1_.jpg"
+                        },
+                        // Schindler's List
+                        new Actor()
+                        {
+                            FirstName = "Liam",
+                            LastName = "Neeson",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMjA1MTQ3NzU1MV5BMl5BanBnXkFtZTgwMDE3Mjg0MzE@._V1_UY1200_CR286,0,630,1200_AL_.jpg"
+                        },
+                        // Star Wars: Episode V - The Empire Strikes Back
+                        new Actor()
+                        {
+                            FirstName = "Mark",
+                            LastName = "Hamill",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BOGY2MjI5MDQtOThmMC00ZGIwLWFmYjgtYWU4MzcxOGEwMGVkXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_UY1200_CR753,0,630,1200_AL_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Harrison",
+                            LastName = "Ford",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTY4Mjg0NjIxOV5BMl5BanBnXkFtZTcwMTM2NTI3MQ@@._V1_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Carrie",
+                            LastName = "Fisher",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMjM4ODU5MDY4MV5BMl5BanBnXkFtZTgwODY1MjQ5MDI@._V1_.jpg"
+                        },
+                        // The Good, the Bad and the Ugly
+                        new Actor()
+                        {
+                            FirstName = "Clint",
+                            LastName = "Eastwood",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTg3MDc0MjY0OV5BMl5BanBnXkFtZTcwNzU1MDAxOA@@._V1_.jpg"
+                        },
+                        // Dune
+                        new Actor()
+                        {
+                            FirstName = "Timothée",
+                            LastName = "Chalamet",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BOWU1Nzg0M2ItYjEzMi00ODliLThkODAtNGEyYzRkZTBmMmEzXkEyXkFqcGdeQXVyNDk2Mzk2NDg@._V1_UY1200_CR138,0,630,1200_AL_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Zendaya",
+                            LastName = "Maree",
+                            ImgUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Zendaya_-_2019_by_Glenn_Francis.jpg/1200px-Zendaya_-_2019_by_Glenn_Francis.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Oscar",
+                            LastName = "Isaac",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTQ2ODE2NDQ5OF5BMl5BanBnXkFtZTcwOTU3OTM1OQ@@._V1_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Jason",
+                            LastName = "Momoa",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BODJlNWQ4ZjUtYjRhNi00NGQ1LWE3YTItYjRmZGI3YzI4YTEyXkEyXkFqcGdeQXVyMTA2MDIzMDE5._V1_.jpg"
+                        },
+                        // Uncharted
+                        new Actor()
+                        {
+                            FirstName = "Tom",
+                            LastName = "Holland",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTA1MDc2MTEwNzReQTJeQWpwZ15BbWU4MDE2ODU1NzAy._V1_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Mark",
+                            LastName = "Wahlberg",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTU0MTQ4OTMyMV5BMl5BanBnXkFtZTcwMTQxOTY1NA@@._V1_.jpg"
+                        },
+                        // Spider-Man: No Way Home
+                        new Actor()
+                        {
+                            FirstName = "Benedict",
+                            LastName = "Cumberbatch",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMjE0MDkzMDQwOF5BMl5BanBnXkFtZTgwOTE1Mjg1MzE@._V1_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Andrew",
+                            LastName = "Garfield",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMjE2MjI2OTk1OV5BMl5BanBnXkFtZTgwNTY1NzM4MDI@._V1_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Tobey",
+                            LastName = "Maguire",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTYwMTI5NTM2OF5BMl5BanBnXkFtZTcwODk3MDQ2Mg@@._V1_UY1200_CR105,0,630,1200_AL_.jpg"
+                        },
+                        // Pulp Fiction
+                        new Actor()
+                        {
+                            FirstName = "Quentin",
+                            LastName = "Tarantino",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTgyMjI3ODA3Nl5BMl5BanBnXkFtZTcwNzY2MDYxOQ@@._V1_.jpg"
+                        },
+                        // Morbius
+                        new Actor()
+                        {
+                            FirstName = "Jared",
+                            LastName = "Leto",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTczMjUwNDUzMF5BMl5BanBnXkFtZTgwNDA4OTAzMTE@._V1_.jpg"
+                        },
+                        // The Godfather
+                        new Actor()
+                        {
+                            FirstName = "Al",
+                            LastName = "Pacino",
+                            ImgUrl = "http://media.silive.com/entertainment_impact_tvfilm/photo/12-8pacinojpg-be944711fa383c11.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Robert",
+                            LastName = "DeNiro",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMjAwNDU3MzcyOV5BMl5BanBnXkFtZTcwMjc0MTIxMw@@._V1_UY1200_CR139,0,630,1200_AL_.jpg"
+                        },
+                        // The Lord of the Rings
+                        new Actor()
+                        {
+                            FirstName = "Elijah",
+                            LastName = "Wood",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTM0NDIxMzQ5OF5BMl5BanBnXkFtZTcwNzAyNTA4Nw@@._V1_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Ian",
+                            LastName = "McKellen",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTQ2MjgyNjk3MV5BMl5BanBnXkFtZTcwNTA3NTY5Mg@@._V1_UY264_CR8,0,178,264_AL_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Viggo",
+                            LastName = "Mortensen",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BNDQzOTg4NzA2Nl5BMl5BanBnXkFtZTcwMzkwNjkxMg@@._V1_UY1200_CR88,0,630,1200_AL_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Sean",
+                            LastName = "Astin",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMjEzMjczOTQ1NF5BMl5BanBnXkFtZTcwMzI2NzYyMQ@@._V1_UY264_CR5,0,178,264_AL_.jpg"
+                        },
+                        // The Dark Knight
+                        new Actor()
+                        {
+                            FirstName = "Christian",
+                            LastName = "Bale",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTkxMzk4MjQ4MF5BMl5BanBnXkFtZTcwMzExODQxOA@@._V1_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Heath",
+                            LastName = "Ledger",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTI2NTY0NzA4MF5BMl5BanBnXkFtZTYwMjE1MDE0._V1_UX178_CR0,0,178,264_AL_.jpg"
+                        },
+                        // Inception
+                        new Actor()
+                        {
+                            FirstName = "Leonardo",
+                            LastName = "DiCaprio",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_UY264_CR9,0,178,264_AL_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Tom",
+                            LastName = "Hardy",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTQ3ODEyNjA4Nl5BMl5BanBnXkFtZTgwMTE4ODMyMjE@._V1_.jpg"
+                        },
+                        new Actor()
+                        {
+                            FirstName = "Cillian",
+                            LastName = "Murphy",
+                            ImgUrl = "https://www.pinkvilla.com/imageresize/cilian_murphy_peaky_blinders.jpg?width=752&format=webp&t=pvorg"
+                        },
+                        // Turning Red
+                        new Actor()
+                        {
+                            FirstName = "Sandra",
+                            LastName = "Oh",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BMTMyNzYyNDE4MV5BMl5BanBnXkFtZTcwOTkxMDQ2NA@@._V1_.jpg"
+                        }
+                    });
+                }
+
                 context.SaveChanges();
             }
         }
