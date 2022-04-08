@@ -689,6 +689,234 @@ namespace MovieGalleryApp.Infrastructure.Data
                     });
                 }
 
+                //Movie Actors
+                if (!context.MovieActors.Any())
+                {
+                    context.MovieActors.AddRange(new List<MovieActor>()
+                    {
+                        // The Lord of the Rings: The Fellowship of the Ring - Elijah Wood, Ian McKellen, Viggo Mortensen, Sean Astin
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Elijah" && a.LastName == "Wood").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Ian" && a.LastName == "McKellen").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Viggo" && a.LastName == "Mortensen").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Sean" && a.LastName == "Astin").ActorId
+                        },
+                        // Schindler's List - Liam Neeson
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Schindler's List").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Liam" && a.LastName == "Neeson").ActorId
+                        },
+                        // The Lord of the Rings: The Two Towers - Elijah Wood, Ian McKellen, Viggo Mortensen, Sean Astin
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Elijah" && a.LastName == "Wood").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Ian" && a.LastName == "McKellen").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Viggo" && a.LastName == "Mortensen").ActorId
+                        },new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Sean" && a.LastName == "Astin").ActorId
+                        },
+                        // Turning Red - Sandra Oh
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Turning Red").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Sandra" && a.LastName == "Oh").ActorId
+                        },
+                        // The Godfather - Al Pacino, Robert DeNiro
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Godfather").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Al" && a.LastName == "Pacino").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Godfather").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Robert" && a.LastName == "DeNiro").ActorId
+                        },
+                        // The Dark Knight - Christian Bale, Heath Ledger 
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Christian" && a.LastName == "Bale").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Heath" && a.LastName == "Ledger").ActorId
+                        },
+                        // Spider-Man: No Way Home - Tom Holland, Zendaya, Benedict Cumberbatch, Andrew Garfield, Tobey Maguire
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Tom" && a.LastName == "Holland").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Zendaya" && a.LastName == "Maree").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Benedict" && a.LastName == "Cumberbatch").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Andrew" && a.LastName == "Garfield").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Tobey" && a.LastName == "Maguire").ActorId
+                        },
+                        // Star Wars: Episode V - The Empire Strikes Back - Mark Hamill, Harrison Ford, Carrie Fisher
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Star Wars: Episode V - The Empire Strikes Back").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Mark" && a.LastName == "Hamill").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Star Wars: Episode V - The Empire Strikes Back").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Harrison" && a.LastName == "Ford").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Star Wars: Episode V - The Empire Strikes Back").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Carrie" && a.LastName == "Fisher").ActorId
+                        },
+                        // Dune - Timothée Chalamet, Zendaya Maree, Oscar Isaac, Jason Momoa
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Timothée" && a.LastName == "Chalamet").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Zendaya" && a.LastName == "Maree").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Oscar" && a.LastName == "Isaac").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Jason" && a.LastName == "Momoa").ActorId
+                        },
+                        // The Lord of the Rings: The Return of the King - Action, Fantasy, Adventure
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Elijah" && a.LastName == "Wood").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Ian" && a.LastName == "McKellen").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Viggo" && a.LastName == "Mortensen").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Sean" && a.LastName == "Astin").ActorId
+                        },
+                        // Uncharted - Tom Holland, Mark Wahlberg
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Uncharted").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Tom" && a.LastName == "Holland").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Uncharted").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Mark" && a.LastName == "Wahlberg").ActorId
+                        },
+                        // Pulp Fiction - Quentin Tarantino
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Pulp Fiction").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Quentin" && a.LastName == "Tarantino").ActorId
+                        },
+                        // Morbius - Jared Leto
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Morbius").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Jared" && a.LastName == "Leto").ActorId
+                        },
+                        // The Batman - Robert Pattinson, Zoë Kravitz, Paul Dano
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Batman").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Robert" && a.LastName == "Pattinson").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Batman").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Zoë" && a.LastName == "Kravitz").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Batman").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Paul" && a.LastName == "Dano").ActorId
+                        },
+                        // Inception - Leonardo DiCaprio, Tom Hardy, Cillian Murphy
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Inception").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Leonardo" && a.LastName == "DiCaprio").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Inception").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Tom" && a.LastName == "Hardy").ActorId
+                        },
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Inception").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Cillian" && a.LastName == "Murphy").ActorId
+                        },
+                        // The Good, the Bad and the Ugly - Clint Eastwood
+                        new MovieActor()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
+                            ActorId = context.Actors.First(a => a.FirstName == "Clint" && a.LastName == "Eastwood").ActorId
+                        },
+                    });
+                }
+
                 context.SaveChanges();
             }
         }
