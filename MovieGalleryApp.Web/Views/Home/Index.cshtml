@@ -12,7 +12,7 @@
         <p class="featured-desc">
             @topMovie.Description
         </p>
-        <a class="featured-button" asp-controller="Home" asp-action="Details" asp-route-id="@topMovie.Id">Details</a>
+        <a class="featured-button" asp-controller="Movie" asp-action="Details" asp-route-id="@topMovie.Id">Details</a>
     </div>
     <div class="movie-list-container">
         <h1 class="movie-list-title">Action Movies</h1>
@@ -26,7 +26,7 @@
                         <p class="movie-list-item-desc">
                             @movie.Description
                         </p>
-                        <a class="movie-list-item-button" asp-controller="Home" asp-action="Details" asp-route-id="@movie.Id">Details</a>
+                        <a class="movie-list-item-button" asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">Details</a>
                     </div>
                 }
             </div>
@@ -45,7 +45,7 @@
                         <p class="movie-list-item-desc">
                             @movie.Description
                         </p>
-                        <a class="movie-list-item-button" asp-controller="Home" asp-action="Details" asp-route-id="@movie.Id">Details</a>
+                        <a class="movie-list-item-button" asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">Details</a>
                     </div>
                 }
             </div>

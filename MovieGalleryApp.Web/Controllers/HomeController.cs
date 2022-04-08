@@ -35,13 +35,6 @@ namespace MovieGalleryApp.Web.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Details(Guid Id) 
-        {
-            var movie = await _movieService.GetMovieById(Id);
-            
-            return View(movie);
-        }
-
         public IActionResult Privacy()
         {
             return View();
