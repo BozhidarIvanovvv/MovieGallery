@@ -28,5 +28,11 @@ namespace MovieGalleryApp.Infrastructure.Constants
         {
             public const int TitleMaxLength = 20;
         }
+
+        public static class ActorEntityConstants
+        {
+            public const int FirstNameMaxLength = 200;
+            public const int LastNameMaxLength = 200;
+        }
     }
 }

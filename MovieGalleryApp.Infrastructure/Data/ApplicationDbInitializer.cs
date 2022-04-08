@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using MovieGalleryApp.Infrastructure.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace MovieGalleryApp.Infrastructure.Data
                             Title = "Morbius",
                             Description = "Biochemist Michael Morbius tries to cure himself of a rare blood disease, but he inadvertently infects himself with a form of vampirism instead.",
                             Rating = 5.2,
-                            ImgUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt5108870%2F&psig=AOvVaw0ecFAVkfWF9ogET3lNPEP8&ust=1649333323157000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCPjY5ciz__YCFQAAAAAdAAAAABAJ",
+                            ImgUrl = "https://m.media-amazon.com/images/M/MV5BNWExYzEwY2UtZTNhYi00MDRjLTg4YzYtN2QzN2E3MjIwY2Q5XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_FMjpg_UX1000_.jpg",
                             Budget = "75 000 000 USD",
                             ReleaseDate = DateTime.Parse("04/01/2022"),
                         },
@@ -234,252 +235,263 @@ namespace MovieGalleryApp.Infrastructure.Data
                         // The Lord of the Rings: The Fellowship of the Ring - Action, Fantasy, Adventure
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("BC3C6E04-A518-4974-8E9C-0B4F7EA9C07D"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("BC3C6E04-A518-4974-8E9C-0B4F7EA9C07D"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("BC3C6E04-A518-4974-8E9C-0B4F7EA9C07D"),
-                            GenreId = Guid.Parse("54CFDD2C-2273-4D89-9719-9AC07FA0DF7D")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Adventure").GenreId
                         },
                         // Schindler's List: - Drama, Historical
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("609CC854-C77D-4555-A70E-2367C79A79E3"),
-                            GenreId = Guid.Parse("52E8E275-3943-4964-83C7-75FB859B3D49")
+                            MovieId = context.Movies.First(m => m.Title == "Schindler's List").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Drama").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("609CC854-C77D-4555-A70E-2367C79A79E3"),
-                            GenreId = Guid.Parse("2749A311-69DE-430E-BC8F-D3A8EA7A38B0")
+                            MovieId = context.Movies.First(m => m.Title == "Schindler's List").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Historical").GenreId
                         },
                         // The Lord of the Rings: The Two Towers - Action, Fantasy, Adventure
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("5F33652C-B882-419F-95C5-2882661E34EC"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("5F33652C-B882-419F-95C5-2882661E34EC"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("5F33652C-B882-419F-95C5-2882661E34EC"),
-                            GenreId = Guid.Parse("54CFDD2C-2273-4D89-9719-9AC07FA0DF7D")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Adventure").GenreId
                         },
                         // Turning Red - Comedy, Fantasy
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("8BFB9A6F-3991-4122-9D60-29B19D6964F4"),
-                            GenreId = Guid.Parse("BC27B002-B5B7-4E50-BD0A-742FFDB76FBD")
+                            MovieId = context.Movies.First(m => m.Title == "Turning Red").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Comedy").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("8BFB9A6F-3991-4122-9D60-29B19D6964F4"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "Turning Red").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         // The Godfather - Crime, Drama
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("983B176C-E5D2-4792-A2E8-2BEB89DB072E"),
-                            GenreId = Guid.Parse("832C44AC-D075-4B9C-888C-D4E38A1B61F0")
+                            MovieId = context.Movies.First(m => m.Title == "The Godfather").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Crime").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("983B176C-E5D2-4792-A2E8-2BEB89DB072E"),
-                            GenreId = Guid.Parse("52E8E275-3943-4964-83C7-75FB859B3D49")
+                            MovieId = context.Movies.First(m => m.Title == "The Godfather").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Drama").GenreId
                         },
                         // The Dark Knight - Action, Drama, Thriller, Crime, Mystery
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("9ED3F7EC-BD63-4040-8B11-537DDEE7B241"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("9ED3F7EC-BD63-4040-8B11-537DDEE7B241"),
-                            GenreId = Guid.Parse("52E8E275-3943-4964-83C7-75FB859B3D49")
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Drama").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("9ED3F7EC-BD63-4040-8B11-537DDEE7B241"),
-                            GenreId = Guid.Parse("F4FCC005-7393-4B87-8B48-014044BDEC32")
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Thriller").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("9ED3F7EC-BD63-4040-8B11-537DDEE7B241"),
-                            GenreId = Guid.Parse("832C44AC-D075-4B9C-888C-D4E38A1B61F0")
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Crime").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("9ED3F7EC-BD63-4040-8B11-537DDEE7B241"),
-                            GenreId = Guid.Parse("88737204-754B-40E4-9FC3-10843F27A337")
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Mystery").GenreId
                         },
                         // Spider-Man: No Way Home - Action, Fantasy, Comedy
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("D519BB62-2AE3-4061-8241-5C573CB47169"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("D519BB62-2AE3-4061-8241-5C573CB47169"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("D519BB62-2AE3-4061-8241-5C573CB47169"),
-                            GenreId = Guid.Parse("BC27B002-B5B7-4E50-BD0A-742FFDB76FBD")
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Comedy").GenreId
                         },
                         // Star Wars: Episode V - The Empire Strikes Back - Action, Adventure, Fantasy
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("F4D25756-B160-4493-84D4-6FA7CAA0B967"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "Star Wars: Episode V - The Empire Strikes Back").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("F4D25756-B160-4493-84D4-6FA7CAA0B967"),
-                            GenreId = Guid.Parse("54CFDD2C-2273-4D89-9719-9AC07FA0DF7D")
+                            MovieId = context.Movies.First(m => m.Title == "Star Wars: Episode V - The Empire Strikes Back").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Adventure").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("F4D25756-B160-4493-84D4-6FA7CAA0B967"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "Star Wars: Episode V - The Empire Strikes Back").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         // Dune - Action, Fantasy, Drama
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("A3A33A65-F36C-4595-AF39-7E4AA037FCCB"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("A3A33A65-F36C-4595-AF39-7E4AA037FCCB"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("A3A33A65-F36C-4595-AF39-7E4AA037FCCB"),
-                            GenreId = Guid.Parse("52E8E275-3943-4964-83C7-75FB859B3D49")
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Drama").GenreId
                         },
                         // The Lord of the Rings: The Return of the King - Action, Fantasy, Adventure
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("A1FE71E5-7460-40C0-ADD5-97CE8BE641D2"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("A1FE71E5-7460-40C0-ADD5-97CE8BE641D2"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("A1FE71E5-7460-40C0-ADD5-97CE8BE641D2"),
-                            GenreId = Guid.Parse("54CFDD2C-2273-4D89-9719-9AC07FA0DF7D")
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Adventure").GenreId
                         },
                         // Uncharted - Action, Adventure
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("DFF3A26C-198B-48AA-A307-98E1B6493438"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "Uncharted").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("DFF3A26C-198B-48AA-A307-98E1B6493438"),
-                            GenreId = Guid.Parse("54CFDD2C-2273-4D89-9719-9AC07FA0DF7D")
+                            MovieId = context.Movies.First(m => m.Title == "Uncharted").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Adventure").GenreId
                         },
                         // Pulp Fiction - Drama, Comedy, Thriller, Crime
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("52DBA5D2-5FCC-4AE6-A299-B4F46B53990B"),
-                            GenreId = Guid.Parse("52E8E275-3943-4964-83C7-75FB859B3D49")
+                            MovieId = context.Movies.First(m => m.Title == "Pulp Fiction").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Drama").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("52DBA5D2-5FCC-4AE6-A299-B4F46B53990B"),
-                            GenreId = Guid.Parse("BC27B002-B5B7-4E50-BD0A-742FFDB76FBD")
+                            MovieId = context.Movies.First(m => m.Title == "Pulp Fiction").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Comedy").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("52DBA5D2-5FCC-4AE6-A299-B4F46B53990B"),
-                            GenreId = Guid.Parse("F4FCC005-7393-4B87-8B48-014044BDEC32")
+                            MovieId = context.Movies.First(m => m.Title == "Pulp Fiction").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Thriller").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("52DBA5D2-5FCC-4AE6-A299-B4F46B53990B"),
-                            GenreId = Guid.Parse("832C44AC-D075-4B9C-888C-D4E38A1B61F0")
+                            MovieId = context.Movies.First(m => m.Title == "Pulp Fiction").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Crime").GenreId
                         },
                         // Morbius - Action, Drama, Fantasy
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("9F90B08B-9C06-4BE7-978F-B70C92C68772"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "Morbius").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("9F90B08B-9C06-4BE7-978F-B70C92C68772"),
-                            GenreId = Guid.Parse("52E8E275-3943-4964-83C7-75FB859B3D49")
+                            MovieId = context.Movies.First(m => m.Title == "Morbius").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Drama").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("9F90B08B-9C06-4BE7-978F-B70C92C68772"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "Morbius").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         // The Batman - Action, Drama, Mystery
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("E45DC9BA-F777-4AA6-8983-E586DCEF2484"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "The Batman").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("E45DC9BA-F777-4AA6-8983-E586DCEF2484"),
-                            GenreId = Guid.Parse("52E8E275-3943-4964-83C7-75FB859B3D49")
+                            MovieId = context.Movies.First(m => m.Title == "The Batman").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Drama").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("E45DC9BA-F777-4AA6-8983-E586DCEF2484"),
-                            GenreId = Guid.Parse("88737204-754B-40E4-9FC3-10843F27A337")
+                            MovieId = context.Movies.First(m => m.Title == "The Batman").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Mystery").GenreId
                         },
                         // Inception - Action, Fantasy, Thriller
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("6ED2DF93-33B1-4928-AA59-E7DE6D1D413B"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "Inception").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("6ED2DF93-33B1-4928-AA59-E7DE6D1D413B"),
-                            GenreId = Guid.Parse("3D8E372B-15CD-48CD-B330-9C2D53A28F67")
+                            MovieId = context.Movies.First(m => m.Title == "Inception").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Fantasy").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("6ED2DF93-33B1-4928-AA59-E7DE6D1D413B"),
-                            GenreId = Guid.Parse("F4FCC005-7393-4B87-8B48-014044BDEC32")
+                            MovieId = context.Movies.First(m => m.Title == "Inception").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Thriller").GenreId
                         },
                         //The Good, the Bad and the Ugly - Action, Adventure
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("D7B6E15E-4174-4194-B89D-FB4D9ADFA1A6"),
-                            GenreId = Guid.Parse("4E6E55C5-5E32-4589-B8EC-A042E9BF4BF9")
+                            MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Action").GenreId
                         },
                         new MovieGenre()
                         {
-                            MovieId = Guid.Parse("D7B6E15E-4174-4194-B89D-FB4D9ADFA1A6"),
-                            GenreId = Guid.Parse("54CFDD2C-2273-4D89-9719-9AC07FA0DF7D")
-                        }
+                            MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
+                            GenreId = context.Genres.First(g => g.GenreTitle == "Adventure").GenreId
+                        },
                     });
                 }
 
+                ////Actors
+                //if (!context.Actors.Any())
+                //{
+                //    context.Actors.AddRange(new List<Actor>()
+                //    {
+                //        new Actor()
+                //        {
+                //            FirstName = ""                        
+                //        }
+                //    });
+                //}
                 context.SaveChanges();
             }
         }
