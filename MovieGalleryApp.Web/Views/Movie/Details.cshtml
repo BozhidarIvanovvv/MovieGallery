@@ -19,6 +19,10 @@
                         <div class="details-prix">
                             <span class="details-span"><b class="details-budget">Budget: @Model.Budget</b></span>
                             <span class="details-crt">Rating: @Model.Rating / 10</span>
+                            @if (User.IsInRole(UserConstants.Roles.MovieAdministrator))
+                            {
+                                <a class="details-featured-button" asp-controller="Movie" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                            }
                         </div>
                     </div>
                 </div>

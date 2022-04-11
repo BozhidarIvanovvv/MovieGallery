@@ -92,6 +92,21 @@ namespace MovieGalleryApp.Web.Areas.Admin.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Roles(UserRolesVM model)
+        {
+            var user = await _userService.GetUserById(model.UserId);
+            var userRoles = await _userManager.GetRolesAsync(user);
+            await _userManager.RemoveFromRolesAsync(user, userRoles);
+
+            if (model.RoleNames?.Length > 0)
+            {
+                await _userManager.AddToRolesAsync(user, model.RoleNames);
+            }
+
+            return RedirectToAction(nameof(ManageUsers));
+        }
+
         //public async Task<IActionResult> CreateRole()
         //{
         //    await _roleManager.CreateAsync(new IdentityRole()

@@ -12,5 +12,9 @@ namespace MovieGalleryApp.Core.Contracts
         Task<IEnumerable<MovieMainPageVM>> GetMoviesByGenre(string genre);
 
         Task<MovieDetailsVM> GetMovieById(Guid id);
+
+        Task<MovieEditVM> GetMovieForEdit(Guid id);
+
+        Task<bool> UpdateMovie(MovieEditVM model);
     }
 }

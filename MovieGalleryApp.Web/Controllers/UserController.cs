@@ -18,21 +18,5 @@ namespace MovieGalleryApp.Web.Controllers
         {
             return View();
         }
-
-        [Authorize(Roles = UserConstants.Roles.Administrator)]
-        public async Task<IActionResult> ManageUsers() 
-        {
-            return Ok();
-        }
-
-        //public async Task<IActionResult> CreateRole()
-        //{
-        //    await _roleManager.CreateAsync(new IdentityRole()
-        //    {
-        //        Name = "Administrator"
-        //    });
-
-        //    return Ok();
-        //}
     }
 }

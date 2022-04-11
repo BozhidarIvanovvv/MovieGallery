@@ -141,6 +141,7 @@ body {
 }
 
 .featured-button {
+    text-decoration: none;
     background-color: #4dbf00;
     color: white;
     padding: 10px 20px;

@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MovieGalleryApp.Core.Constants;
 using MovieGalleryApp.Core.Contracts;
+using MovieGalleryApp.Core.Models.Movie;
 
 namespace MovieGalleryApp.Web.Controllers
 {
@@ -28,6 +31,28 @@ namespace MovieGalleryApp.Web.Controllers
             movie.Genres = await _genreService.GetGenresAsStringById(Id);
 
             return View(movie);
+        }
+
+        [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
+        public async Task<IActionResult> Edit(Guid Id)
+        {
+            var movieForEdit = await _movieService.GetMovieForEdit(Id);
+
+            return View(movieForEdit);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
+        public async Task<IActionResult> Edit(MovieEditVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _movieService.UpdateMovie(model);
+
+            return Redirect($"/Movie/Details/{model.Id}");
         }
     }
 }

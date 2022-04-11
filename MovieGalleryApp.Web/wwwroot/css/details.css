@@ -17,6 +17,17 @@
     box-shadow: -2px 0px 33px 0px rgba(0,0,0,0.75);
 }
 
+.details-featured-button {
+    text-decoration: none;
+    background-color: #4dbf00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
 .details-budget{
     font-weight: bold;
     font-size: 25px;

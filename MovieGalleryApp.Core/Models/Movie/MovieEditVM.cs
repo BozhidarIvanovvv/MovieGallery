@@ -1,11 +1,15 @@
-﻿using MovieGalleryApp.Core.Models.Genre;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MovieGalleryApp.Core.Models.Movie
 {
-    public class MovieDetailsVM
+    public class MovieEditVM
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string Title { get; set; }
@@ -24,8 +28,5 @@ namespace MovieGalleryApp.Core.Models.Movie
 
         [Required]
         public double Rating { get; set; }
-
-        [Required]
-        public string Genres { get; set; }
     }
 }

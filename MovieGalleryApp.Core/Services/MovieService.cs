@@ -31,11 +31,27 @@ namespace MovieGalleryApp.Core.Services
             }
 
             return new MovieDetailsVM() {
-                Id = movie.MovieId,
+                Id = movie.MovieId.ToString(),
                 Title = movie.Title,
                 ImgUrl = movie.ImgUrl,
                 Budget = movie.Budget,
                 Description = movie.Description,
+                Rating = movie.Rating,
+                ReleaseDate = movie.ReleaseDate
+            };
+        }
+
+        public async Task<MovieEditVM> GetMovieForEdit(Guid id)
+        {
+            var movie = await _repo.GetByIdAsync<Movie>(id);
+
+            return new MovieEditVM()
+            {
+                Id = movie.MovieId,
+                Title = movie.Title,
+                Description = movie.Description,
+                Budget = movie.Budget,
+                ImgUrl = movie.ImgUrl,
                 Rating = movie.Rating,
                 ReleaseDate = movie.ReleaseDate
             };
@@ -68,6 +84,27 @@ namespace MovieGalleryApp.Core.Services
                 .ToArrayAsync();
 
             return movies;
+        }
+
+        public async Task<bool> UpdateMovie(MovieEditVM model)
+        {
+            bool result = false;
+
+            var movie = await _repo.GetByIdAsync<Movie>(model.Id);
+
+            if (movie != null)
+            {
+                movie.Title = model.Title;
+                movie.Description = model.Description;
+                movie.Budget = model.Budget;
+                movie.ReleaseDate = model.ReleaseDate;
+                movie.ImgUrl = model.ImgUrl;
+
+                await _repo.SaveChangesAsync();
+                result = true;
+            }
+
+            return result;
         }
     }
 }
