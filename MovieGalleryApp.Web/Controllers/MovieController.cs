@@ -54,5 +54,25 @@ namespace MovieGalleryApp.Web.Controllers
 
             return Redirect($"/Movie/Details/{model.Id}");
         }
+
+        [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
+        public IActionResult Create() 
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
+        public async Task<IActionResult> Create(MovieCreateVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var id = await _movieService.CreateMovie(model);
+
+            return Redirect($"/Movie/Details/{id}");
+        }
     }
 }

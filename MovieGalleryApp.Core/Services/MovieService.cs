@@ -21,6 +21,46 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
+        public async Task<Guid> CreateMovie(MovieCreateVM model)
+        {
+            var genres = model.Genres.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
+
+            var movie = new Movie
+            {
+                Title = model.Title,
+                Description = model.Description,
+                Budget = model.Budget,
+                ImgUrl = model.ImgUrl,
+                Rating = model.Rating,
+                ReleaseDate = model.ReleaseDate,
+            };
+
+            foreach (var genre in genres)
+            {
+                var dbGenre = await _repo.All<Genre>()
+                    .Where(g => g.GenreTitle == genre)
+                    .FirstOrDefaultAsync();
+
+                if (dbGenre == null)
+                {
+                    throw new ArgumentException("This genre doesn't exist!");
+                }
+
+                movie.MovieGenres.Add(new MovieGenre 
+                {
+                    GenreId = dbGenre.GenreId,
+                    Genre = dbGenre,
+                    MovieId = movie.MovieId,
+                    Movie = movie
+                });
+            }
+
+            await _repo.AddAsync(movie);
+            _repo.SaveChanges();
+
+            return movie.MovieId;
+        }
+
         public async Task<MovieDetailsVM> GetMovieById(Guid id)
         {
             var movie = await _repo.GetByIdAsync<Movie>(id);
@@ -59,7 +99,7 @@ namespace MovieGalleryApp.Core.Services
 
         public async Task<IEnumerable<MovieMainPageVM>> GetMoviesByGenre(string genreTitle)
         {
-            if (!Enum.IsDefined(typeof(Enums.Genre), genreTitle))
+            if (!Enum.IsDefined(typeof(Enums.GenreEnum), genreTitle))
             {
                 throw new ArgumentException("This genre title doesn't exist!");
             }

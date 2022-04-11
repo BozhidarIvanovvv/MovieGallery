@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieGalleryApp.Core.Enums
 {
-    public enum Genre
+    public enum GenreEnum
     {
         Thriller,
         Mystery,
