@@ -26,4 +26,8 @@
             }
         </tbody>
     </table>
+    @if (User.IsInRole(UserConstants.Roles.MovieAdministrator))
+    {
+        <a class="cast-featured-button cast-button" asp-controller="Actor" asp-action="Add" asp-route-id="@ViewBag.MovieId">Add a cast member</a>
+    }
 </div>

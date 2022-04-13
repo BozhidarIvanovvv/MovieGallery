@@ -17,6 +17,10 @@ namespace MovieGalleryApp.Infrastructure.Data
         [StringLength(DatabaseConstants.CountryEntityConstants.NameMaxLength)]
         public string CountryName { get; set; }
 
+        [Required]
+        [StringLength(DatabaseConstants.CountryEntityConstants.ImgUrlMaxLength)]
+        public string ImgUrl { get; set; }
+
         public ICollection<MovieCountry> MovieCountries { get; set; } = new List<MovieCountry>();
     }
 }

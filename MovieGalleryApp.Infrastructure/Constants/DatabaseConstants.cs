@@ -22,6 +22,7 @@ namespace MovieGalleryApp.Infrastructure.Constants
         public static class CountryEntityConstants
         {
             public const int NameMaxLength = 56;
+            public const int ImgUrlMaxLength = 2048;
         }
 
         public static class GenreEntityConstants
