@@ -83,6 +83,19 @@ namespace MovieGalleryApp.Core.Services
             return movie.MovieId;
         }
 
+        public async Task<IEnumerable<MovieTableVM>> GetAllMovies() => await _repo
+                .All<Movie>()
+                .Select(m => new MovieTableVM
+                {
+                   Title = m.Title,
+                   Budget = m.Budget,
+                   ImgUrl = m.ImgUrl,
+                   Rating = m.Rating,
+                   ReleaseDate = m.ReleaseDate,
+                })
+                .OrderBy(m => m.Title)
+                .ToListAsync();
+
         public async Task<MovieDetailsVM> GetMovieById(Guid id)
         {
             var movie = await _repo.GetByIdAsync<Movie>(id);

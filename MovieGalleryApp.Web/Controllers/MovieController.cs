@@ -60,11 +60,11 @@ namespace MovieGalleryApp.Web.Controllers
         }
 
         [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
-        public IActionResult Create() 
+        public IActionResult Create()
         {
             return View();
         }
-        
+
         [HttpPost]
         [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
         public async Task<IActionResult> Create(MovieCreateVM model)
@@ -77,6 +77,13 @@ namespace MovieGalleryApp.Web.Controllers
             var id = await _movieService.CreateMovie(model);
 
             return Redirect($"/Movie/Details/{id}");
+        }
+
+        public async Task<IActionResult> Movies()
+        {
+            var movies = await _movieService.GetAllMovies();
+
+            return View(movies);
         }
     }
 }

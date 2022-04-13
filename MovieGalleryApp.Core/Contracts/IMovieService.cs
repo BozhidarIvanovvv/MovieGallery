@@ -17,6 +17,8 @@ namespace MovieGalleryApp.Core.Contracts
 
         Task<bool> UpdateMovie(MovieEditVM model);
 
-        Task<Guid> CreateMovie(MovieCreateVM model); 
+        Task<Guid> CreateMovie(MovieCreateVM model);
+
+        Task<IEnumerable<MovieTableVM>> GetAllMovies();
     }
 }

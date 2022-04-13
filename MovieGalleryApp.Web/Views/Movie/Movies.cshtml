@@ -1,0 +1,36 @@
+﻿@using MovieGalleryApp.Core.Models.Movie
+@model IEnumerable<MovieTableVM>
+@{
+    int i = 0;
+}
+<div class="movie-table-div">
+    <table class="rtable">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Budget</th>
+                <th>Rating</th>
+                <th>ReleaseDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@(i += 1)</td>
+                    <td><img class="cast-img" src="@movie.ImgUrl"></td>
+                    <td>@movie.Title</td>
+                    <td>@movie.Budget</td>
+                    <td>@movie.Rating</td>
+                    <td>@movie.ReleaseDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (User.IsInRole(UserConstants.Roles.MovieAdministrator))
+    {
+        <a class="cast-featured-button cast-button" asp-controller="Movie" asp-action="Create">Add a movie</a>
+    }
+</div>
