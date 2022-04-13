@@ -20,6 +20,17 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
+        public async Task<IEnumerable<CountryAllVM>> GetAllCountries()
+            => await _repo
+                .All<Country>()
+                .Select(c => new CountryAllVM()
+                {
+                    CountryName = c.CountryName,
+                    ImgUrl = c.ImgUrl
+                })
+                .OrderBy(c => c.CountryName)
+                .ToListAsync();
+
         public async Task<string> GetCountriesAsStringById(Guid movieId)
         {
             var movie = await _repo.GetByIdAsync<Movie>(movieId);

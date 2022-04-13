@@ -28,7 +28,7 @@ namespace MovieGalleryApp.Web.Controllers
 
             return View(actors);
         }
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> Actors()
         {
             var actors = await _actorService.GetAllActors();
 

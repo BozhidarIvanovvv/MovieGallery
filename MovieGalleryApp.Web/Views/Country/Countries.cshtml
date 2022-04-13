@@ -1,0 +1,31 @@
+﻿@using MovieGalleryApp.Core.Models.Country
+@model IEnumerable<CountryAllVM>
+@{
+    int i = 0;
+}
+
+<div class="country-table-div">
+    <table class="rtable">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Flag</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var country in Model)
+            {
+                <tr>
+                    <td>@(i += 1)</td>
+                    <td><img class="cast-img" src="@country.ImgUrl"></td>
+                    <td>@country.CountryName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (User.IsInRole(UserConstants.Roles.MovieAdministrator))
+    {
+        <a class="cast-featured-button cast-button" asp-controller="Country" asp-action="Add">Add a new country</a>
+    }
+</div>
