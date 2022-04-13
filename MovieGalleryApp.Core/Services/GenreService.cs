@@ -73,5 +73,25 @@ namespace MovieGalleryApp.Core.Services
 
             return result;
         }
+
+        public async Task AddGenre(GenreAddVM model)
+        {
+            var dbGenre = await _repo
+                .All<Genre>(a => a.GenreTitle == model.Title)
+                .FirstOrDefaultAsync();
+
+            if (dbGenre != null)
+            {
+                throw new ArgumentException("This genre already exists!");
+            }
+
+            var genre = new Genre()
+            {
+                GenreTitle = model.Title,
+            };
+
+            await _repo.AddAsync(genre);
+            _repo.SaveChanges();
+        }
     }
 }

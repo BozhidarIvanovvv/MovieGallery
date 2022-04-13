@@ -12,5 +12,7 @@ namespace MovieGalleryApp.Core.Contracts
         Task<string> GetGenresAsStringById(Guid movieId);
 
         Task<IEnumerable<GenreTableVM>> GetAllGenres();
+
+        Task AddGenre(GenreAddVM model);
     }
 }
