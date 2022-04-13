@@ -20,6 +20,16 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
+        public async Task<IEnumerable<GenreTableVM>> GetAllGenres()
+            =>  await _repo
+                    .All<Genre>()
+                    .Select(g => new GenreTableVM
+                    {
+                        Title = g.GenreTitle
+                    })
+                    .OrderBy(g => g.Title)
+                    .ToListAsync();
+
         public async Task<string> GetGenresAsStringById(Guid movieId)
         {
             var movie = await _repo.GetByIdAsync<Movie>(movieId);

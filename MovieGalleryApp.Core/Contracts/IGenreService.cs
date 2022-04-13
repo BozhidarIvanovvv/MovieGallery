@@ -10,5 +10,7 @@ namespace MovieGalleryApp.Core.Contracts
     public interface IGenreService
     {
         Task<string> GetGenresAsStringById(Guid movieId);
+
+        Task<IEnumerable<GenreTableVM>> GetAllGenres();
     }
 }

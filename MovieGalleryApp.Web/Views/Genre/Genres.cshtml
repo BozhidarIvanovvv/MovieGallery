@@ -1,0 +1,29 @@
+﻿@using MovieGalleryApp.Core.Models.Genre
+@model IEnumerable<GenreTableVM>
+@{
+    int i = 0;
+}
+
+<div class="genre-table-div">
+    <table class="rtable">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genre in Model)
+            {
+                <tr>
+                    <td>@(i += 1)</td>
+                    <td>@genre.Title</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (User.IsInRole(UserConstants.Roles.MovieAdministrator))
+    {
+        <a class="cast-featured-button cast-button" asp-controller="Genre" asp-action="Create">Add a genre</a>
+    }
+</div>
