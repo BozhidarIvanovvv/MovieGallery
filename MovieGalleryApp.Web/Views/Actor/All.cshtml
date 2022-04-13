@@ -1,0 +1,29 @@
+﻿@using MovieGalleryApp.Core.Models.Actor
+@model IEnumerable<ActorCastVM>
+@{
+    int i = 0;
+}
+
+<div class="actor-table-div">
+    <table class="rtable">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Photo</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var actor in Model)
+            {
+                <tr>
+                    <td>@(i += 1)</td>
+                    <td><img class="cast-img" src="@actor.ImgUrl"></td>
+                    <td>@actor.FirstName</td>
+                    <td>@actor.LastName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

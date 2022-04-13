@@ -58,5 +58,18 @@ namespace MovieGalleryApp.Core.Services
             await _repo.AddAsync(actor);
             _repo.SaveChanges();
         }
+
+        public async Task<IEnumerable<ActorCastVM>> GetAllActors()
+            => await _repo
+                .All<Actor>()
+                .Select(a => new ActorCastVM()
+                {
+                    FirstName = a.FirstName,
+                    LastName = a.LastName,
+                    ImgUrl = a.ImgUrl
+                })
+                .OrderBy(a => a.FirstName)
+                .ThenBy(a => a.LastName)
+                .ToListAsync();
     }
 }

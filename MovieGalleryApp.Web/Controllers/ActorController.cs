@@ -28,6 +28,12 @@ namespace MovieGalleryApp.Web.Controllers
 
             return View(actors);
         }
+        public async Task<IActionResult> All()
+        {
+            var actors = await _actorService.GetAllActors();
+
+            return View(actors);
+        }
 
         [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
         public async Task<IActionResult> Add(Guid Id)

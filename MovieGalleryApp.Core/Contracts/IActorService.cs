@@ -10,7 +10,7 @@ namespace MovieGalleryApp.Core.Contracts
     public interface IActorService
     {
         Task<IEnumerable<ActorCastVM>> GetAllActorsForAMovie(Guid movieId);
-
+        Task<IEnumerable<ActorCastVM>> GetAllActors();
         Task AddActor(ActorCastAddVM model, Guid movieId);
     }
 }
