@@ -426,6 +426,12 @@ body {
     margin: auto;
 }
 
+.genre-table-div {
+    width: 350px;
+    padding-top: 120px;
+    margin: auto;
+}
+
 .cast-img {
     width: 150px;
     height: 200px;
