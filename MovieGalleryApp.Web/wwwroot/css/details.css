@@ -17,11 +17,26 @@
     box-shadow: -2px 0px 33px 0px rgba(0,0,0,0.75);
 }
 
+.details-buttons-div {
+    padding-left: 30px;
+}
+
+.cast-featured-button {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
 .details-featured-button {
+    padding: 10px 20px;
     text-decoration: none;
     background-color: #4dbf00;
     color: white;
-    padding: 10px 20px;
     border-radius: 10px;
     border: none;
     outline: none;

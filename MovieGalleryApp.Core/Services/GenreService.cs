@@ -29,15 +29,15 @@ namespace MovieGalleryApp.Core.Services
                 throw new ArgumentException("This movie doesn't exist!");
             }
 
-            var genres = await _repo.All<MovieGenre>()
-               .Where(mg => mg.MovieId == movieId)
-               .Select(mg => new GenreDetailsVM
-               {
-                   Id = mg.GenreId,
-                   Title = mg.Genre.GenreTitle,
-               })
-               .OrderBy(g => g.Title)
-               .ToListAsync();
+            var genres = await _repo
+                .All<MovieGenre>(mg => mg.MovieId == movieId)
+                .Select(mg => new GenreDetailsVM
+                {
+                    Id = mg.GenreId,
+                    Title = mg.Genre.GenreTitle,
+                })
+                .OrderBy(g => g.Title)
+                .ToListAsync();
 
             if (genres.Count == 0)
             {

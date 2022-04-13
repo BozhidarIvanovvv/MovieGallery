@@ -37,8 +37,8 @@ namespace MovieGalleryApp.Core.Services
 
             foreach (var genre in genres)
             {
-                var dbGenre = await _repo.All<Genre>()
-                    .Where(g => g.GenreTitle == genre)
+                var dbGenre = await _repo
+                    .All<Genre>(g => g.GenreTitle == genre)
                     .FirstOrDefaultAsync();
 
                 if (dbGenre == null)
@@ -104,17 +104,18 @@ namespace MovieGalleryApp.Core.Services
                 throw new ArgumentException("This genre title doesn't exist!");
             }
 
-            var genre = await _repo.All<Infrastructure.Data.Genre>()
-                .FirstOrDefaultAsync(g => g.GenreTitle == genreTitle);
+            var genre = await _repo
+                .All<Genre>(g => g.GenreTitle == genreTitle)
+                .FirstOrDefaultAsync();
 
             if (genre == null) 
             {
                 throw new ArgumentException("This genre doesn't exist!");
             }
 
-            var movies = await _repo.All<MovieGenre>()
-                .Where(mg => mg.GenreId == genre.GenreId)
-                .Select(mg => new MovieMainPageVM 
+            var movies = await _repo
+                .All<MovieGenre>(mg => mg.GenreId == genre.GenreId)
+                .Select(mg => new MovieMainPageVM() 
                 {
                     Id = mg.MovieId,
                     Title = mg.Movie.Title,

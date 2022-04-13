@@ -24,5 +24,7 @@ namespace MovieGalleryApp.Infrastructure.Data
         [Required]
         [StringLength(DatabaseConstants.MovieEntityConstants.ImgUrlMaxLength)]
         public string ImgUrl { get; set; }
+
+        public ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();
     }
 }

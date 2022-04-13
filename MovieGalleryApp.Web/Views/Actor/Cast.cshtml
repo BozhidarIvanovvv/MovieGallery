@@ -1,0 +1,30 @@
+﻿@using MovieGalleryApp.Core.Models.Actor
+@model IEnumerable<ActorCastVM>
+@{
+}
+
+<div class="cast-table-div">
+    <table class="rtable">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var actor in Model)
+            {
+                <tr>
+                    <td><img class="cast-img" src="@actor.ImgUrl"></td>
+                    <td>@actor.FirstName</td>
+                    <td>@actor.LastName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (User.IsInRole(UserConstants.Roles.MovieAdministrator))
+    {
+        <a class="cast-featured-button cast-button" asp-controller="Actor" asp-action="Add" asp-route-id="@ViewBag.MovieId">Add a cast member</a>
+    }
+</div>
