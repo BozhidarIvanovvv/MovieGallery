@@ -25,6 +25,8 @@ namespace MovieGalleryApp.Core.Services
         {
             var genres = model.Genres.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
 
+            var countries = model.Countries.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
+
             var movie = new Movie
             {
                 Title = model.Title,
@@ -51,7 +53,27 @@ namespace MovieGalleryApp.Core.Services
                     GenreId = dbGenre.GenreId,
                     Genre = dbGenre,
                     MovieId = movie.MovieId,
-                    Movie = movie
+                    Movie = movie,
+                });
+            }
+
+            foreach (var country in countries)
+            {
+                var dbCountry = await _repo
+                    .All<Country>(g => g.CountryName == country)
+                    .FirstOrDefaultAsync();
+
+                if (dbCountry == null)
+                {
+                    throw new ArgumentException("This country doesn't exist!");
+                }
+
+                movie.MovieCountries.Add(new MovieCountry
+                {
+                    CountryId = dbCountry.CountryId,
+                    Country = dbCountry,
+                    MovieId = movie.MovieId,
+                    Movie = movie,
                 });
             }
 

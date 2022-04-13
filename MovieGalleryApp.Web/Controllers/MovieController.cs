@@ -10,13 +10,16 @@ namespace MovieGalleryApp.Web.Controllers
     {
         private readonly IMovieService _movieService;
         private readonly IGenreService _genreService;
+        private readonly ICountryService _countryService;
 
         public MovieController(
             IMovieService movieService,
-            IGenreService genreService)
+            IGenreService genreService,
+            ICountryService countryService)
         {
             _movieService = movieService;
             _genreService = genreService;
+            _countryService = countryService;
         }
 
         public IActionResult Index()
@@ -29,6 +32,7 @@ namespace MovieGalleryApp.Web.Controllers
             var movie = await _movieService.GetMovieById(Id);
 
             movie.Genres = await _genreService.GetGenresAsStringById(Id);
+            movie.Countries = await _countryService.GetCountriesAsStringById(Id);
 
             return View(movie);
         }

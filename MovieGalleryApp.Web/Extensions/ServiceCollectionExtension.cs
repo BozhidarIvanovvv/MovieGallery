@@ -15,6 +15,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IActorService, ActorService>();
+            services.AddScoped<ICountryService, CountryService>();
 
             return services;
         }

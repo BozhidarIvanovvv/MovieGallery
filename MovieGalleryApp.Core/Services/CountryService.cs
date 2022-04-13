@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MovieGalleryApp.Core.Contracts;
-using MovieGalleryApp.Core.Models.Genre;
+using MovieGalleryApp.Core.Models.Country;
 using MovieGalleryApp.Infrastructure.Data;
 using MovieGalleryApp.Infrastructure.Data.Repositories;
 using System;
@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace MovieGalleryApp.Core.Services
 {
-    public class GenreService : IGenreService
+    public class CountryService : ICountryService
     {
         private readonly IApplicationDbRepository _repo;
 
-        public GenreService(IApplicationDbRepository repo)
+        public CountryService(IApplicationDbRepository repo)
         {
             _repo = repo;
         }
 
-        public async Task<string> GetGenresAsStringById(Guid movieId)
+        public async Task<string> GetCountriesAsStringById(Guid movieId)
         {
             var movie = await _repo.GetByIdAsync<Movie>(movieId);
 
@@ -29,32 +29,32 @@ namespace MovieGalleryApp.Core.Services
                 throw new ArgumentException("This movie doesn't exist!");
             }
 
-            var genres = await _repo
-                .All<MovieGenre>(mg => mg.MovieId == movieId)
-                .Select(mg => new GenreDetailsVM
+            var countries = await _repo
+                .All<MovieCountry>(mc => mc.MovieId == movieId)
+                .Select(mc => new CountryDetailsVM
                 {
-                    Id = mg.GenreId,
-                    Title = mg.Genre.GenreTitle,
+                    Id = mc.CountryId,
+                    CountryName = mc.Country.CountryName,
                 })
-                .OrderBy(g => g.Title)
+                .OrderBy(g => g.CountryName)
                 .ToListAsync();
 
-            if (genres.Count == 0)
+            if (countries.Count == 0)
             {
-                throw new ArgumentException($"This movie: {movie.Title} doesn't have any genres!");
+                throw new ArgumentException($"This movie: {movie.Title} doesn't have any countries!");
             }
 
             string result = String.Empty;
 
-            for (int i = 0; i < genres.Count; i++)
+            for (int i = 0; i < countries.Count; i++)
             {
-                if (genres.Count - 1 == i)
+                if (countries.Count - 1 == i)
                 {
-                    result += genres[i].Title;
+                    result += countries[i].CountryName;
                     break;
                 }
 
-                result += genres[i].Title + "/";
+                result += countries[i].CountryName + "/";
             }
 
             result = result.TrimEnd();
