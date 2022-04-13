@@ -917,6 +917,181 @@ namespace MovieGalleryApp.Infrastructure.Data
                     });
                 }
 
+                if (!context.Countries.Any())
+                {
+                    context.Countries.AddRange(new List<Country>()
+                    {
+                        new Country()
+                        {
+                            CountryName = "United States",
+                        },
+                        new Country()
+                        {
+                            CountryName = "New Zealand",
+                        },
+                        new Country()
+                        {
+                            CountryName = "Spain",
+                        },
+                        new Country()
+                        {
+                            CountryName = "Germany",
+                        },
+                        new Country()
+                        {
+                            CountryName = "Italy",
+                        }
+                    });
+                }
+
+                if (!context.MovieCountries.Any())
+                {
+                    context.MovieCountries.AddRange(new List<MovieCountry>() 
+                    {
+                        // The Lord of the Rings: The Fellowship of the Ring
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "New Zealand").CountryId
+                        },
+                        
+                        // Schindler's List
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Schindler's List").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // The Lord of the Rings: The Two Towers
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "New Zealand").CountryId
+                        },
+
+                        // Turning Red
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Turning Red").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // The Godfather
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Godfather").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // The Dark Knight
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // Spider-Man: No Way Home
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // Star Wars: Episode V - The Empire Strikes Back
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Star Wars: Episode V - The Empire Strikes Back").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // Dune
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // The Lord of the Rings: The Return of the King
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "New Zealand").CountryId
+                        },
+
+                        // Uncharted
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Uncharted").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // Pulp Fiction
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Pulp Fiction").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // Morbius
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Morbius").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // The Batman
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Batman").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // Inception
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Inception").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+
+                        // The Good, the Bad and the Ugly
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "Italy").CountryId
+                        },
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "United States").CountryId
+                        },
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "Germany").CountryId
+                        },
+                        new MovieCountry()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
+                            CountryId = context.Countries.First(a => a.CountryName == "Spain").CountryId
+                        }
+                    });
+                }
+
                 context.SaveChanges();
             }
         }
