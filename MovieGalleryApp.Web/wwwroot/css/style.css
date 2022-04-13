@@ -420,6 +420,12 @@ body {
     margin: auto;
 }
 
+.movie-table-div {
+    width: 1300px;
+    padding-top: 120px;
+    margin: auto;
+}
+
 .cast-img {
     width: 150px;
     height: 200px;
@@ -428,4 +434,9 @@ body {
 .cast-button{
     position: relative;
     top: 30px;
+}
+
+.main-page-navbar-a{
+    color: white;
+    text-decoration: none;
 }
