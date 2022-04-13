@@ -20,6 +20,27 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
+        public async Task AddCountry(CountryAddVM model)
+        {
+            var dbCountry = await _repo
+                .All<Country>(a => a.CountryName == model.CountryName)
+                .FirstOrDefaultAsync();
+
+            if (dbCountry != null)
+            {
+                throw new ArgumentException("This country already exists!");
+            }
+
+            var country = new Country()
+            {
+                CountryName = model.CountryName,
+                ImgUrl = model.ImgUrl
+            };
+
+            await _repo.AddAsync(country);
+            _repo.SaveChanges();
+        }
+
         public async Task<IEnumerable<CountryAllVM>> GetAllCountries()
             => await _repo
                 .All<Country>()

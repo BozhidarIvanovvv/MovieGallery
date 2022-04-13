@@ -12,5 +12,7 @@ namespace MovieGalleryApp.Core.Contracts
         Task<string> GetCountriesAsStringById(Guid movieId);
 
         Task<IEnumerable<CountryAllVM>> GetAllCountries();
+
+        Task AddCountry(CountryAddVM model);
     }
 }

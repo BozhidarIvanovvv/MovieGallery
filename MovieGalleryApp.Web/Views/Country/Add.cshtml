@@ -1,22 +1,17 @@
-﻿@using MovieGalleryApp.Core.Models.Actor
-@model ActorCastAddVM
+﻿@using MovieGalleryApp.Core.Models.Country
+@model CountryAddVM
 
 <div class="row">
     <div class="col-4">
         <div class="edit-form">
             <div class="edit-title">Welcome, Movie Administrator!</div>
-            <div class="edit-subtitle">Here you can add a new cast member!</div>
+            <div class="edit-subtitle">Here you can add a new country!</div>
             <form id="edit" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="edit-input-container ic1">
-                    <label asp-for="FirstName" class="form-label edit-position"></label>
-                    <input asp-for="FirstName" class="form-control edit-width" aria-required="true" />
-                    <span asp-validation-for="FirstName" class="text-danger"></span>
-                </div>
-                <div class="input-container ic2">
-                    <label asp-for="LastName" class="form-label edit-position"></label>
-                    <input asp-for="LastName" class="form-control edit-width" aria-required="true" />
-                    <span asp-validation-for="LastName" class="text-danger"></span>
+                    <label asp-for="CountryName" class="form-label edit-position"></label>
+                    <input asp-for="CountryName" class="form-control edit-width" aria-required="true" />
+                    <span asp-validation-for="CountryName" class="text-danger"></span>
                 </div>
                  <div class="input-container ic2">
                     <label asp-for="ImgUrl" class="form-label edit-position"></label>
