@@ -15,7 +15,7 @@ namespace MovieGalleryApp.Web.Controllers
             _countryService = countryService;
         }
 
-        public async Task<IActionResult> Countries()
+        public async Task<IActionResult> All()
         {
             var countries = await _countryService.GetAllCountries();
 

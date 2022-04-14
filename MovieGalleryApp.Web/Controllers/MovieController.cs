@@ -83,7 +83,7 @@ namespace MovieGalleryApp.Web.Controllers
             return Redirect($"/Movie/Details/{id}");
         }
 
-        public async Task<IActionResult> Movies()
+        public async Task<IActionResult> All()
         {
             var movies = await _movieService.GetAllMovies();
 

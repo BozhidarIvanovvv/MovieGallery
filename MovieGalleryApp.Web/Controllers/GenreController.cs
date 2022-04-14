@@ -15,7 +15,7 @@ namespace MovieGalleryApp.Web.Controllers
             _genreService = genreService;
         }
         
-        public async Task<IActionResult> Genres()
+        public async Task<IActionResult> All()
         {
             var genres = await _genreService.GetAllGenres();
             
