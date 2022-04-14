@@ -1,0 +1,34 @@
+﻿@using MovieGalleryApp.Core.Models.Cinema
+@model CinemaAddVM
+
+<div class="row">
+    <div class="col-4">
+        <div class="edit-form">
+            <div class="edit-title">Welcome, Movie Administrator!</div>
+            <div class="edit-subtitle">Here you can add a new cinema!</div>
+            <form id="edit" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="edit-input-container ic1">
+                    <label asp-for="Name" class="form-label edit-position"></label>
+                    <input asp-for="Name" class="form-control edit-width" aria-required="true" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="input-container ic2">
+                    <label asp-for="Location" class="form-label edit-position"></label>
+                    <input asp-for="Location" class="form-control edit-width" aria-required="true" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                 <div class="input-container ic2">
+                    <label asp-for="ImgUrl" class="form-label edit-position"></label>
+                    <input asp-for="ImgUrl" class="form-control edit-width" aria-required="true" />
+                    <span asp-validation-for="ImgUrl" class="text-danger"></span>
+                </div>
+                <button id="login-submit" type="submit" class="edit-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

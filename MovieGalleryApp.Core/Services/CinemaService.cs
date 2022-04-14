@@ -20,6 +20,28 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
+        public async Task AddCinema(CinemaAddVM model)
+        {
+            var dbCinema = await _repo
+                .All<Cinema>(a => a.Name == model.Name)
+                .FirstOrDefaultAsync();
+
+            if (dbCinema != null)
+            {
+                throw new ArgumentException("This cinema already exists!");
+            }
+
+            var cinema = new Cinema()
+            {
+                Name = model.Name,
+                Location = model.Location,
+                ImgUrl = model.ImgUrl
+            };
+
+            await _repo.AddAsync(cinema);
+            _repo.SaveChanges();
+        }
+
         public async Task<IEnumerable<CinemaAllVM>> GetAllCinemas()
             => await _repo
                 .All<Cinema>()
