@@ -60,14 +60,14 @@ namespace MovieGalleryApp.Web.Controllers
         }
 
         [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
-        public IActionResult Create()
+        public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
         [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
-        public async Task<IActionResult> Create(MovieCreateVM model)
+        public async Task<IActionResult> Add(MovieCreateVM model)
         {
             if (!ModelState.IsValid)
             {

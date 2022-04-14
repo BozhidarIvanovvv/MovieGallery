@@ -1,9 +1,20 @@
 ﻿<div class="sidebar">
-    <i class="left-menu-icon fas fa-search"></i>
-    <i class="left-menu-icon fas fa-home"></i>
-    <i class="left-menu-icon fas fa-users"></i>
-    <i class="left-menu-icon fas fa-bookmark"></i>
-    <i class="left-menu-icon fas fa-tv"></i>
-    <i class="left-menu-icon fas fa-hourglass-start"></i>
-    <i class="left-menu-icon fas fa-shopping-cart"></i>
+    @if (User.IsInRole(UserConstants.Roles.MovieAdministrator))
+    {
+        <a class="main-page-navbar-a" asp-controller="Movie" asp-action="Add">
+            <i class="left-menu-icon fas fa-solid fa-film"></i>
+        </a>
+        <a class="main-page-navbar-a" asp-controller="Genre" asp-action="Add">
+            <i class="left-menu-icon fas fa-solid fa-bars"></i>
+        </a>
+        <a class="main-page-navbar-a" asp-controller="Actor" asp-action="Add">
+            <i class="left-menu-icon fas fa-solid fa-user"></i>
+        </a>
+        <a class="main-page-navbar-a" asp-controller="Country" asp-action="Add">
+            <i class="left-menu-icon fas fa-solid fa-flag"></i>
+        </a>
+        <a class="main-page-navbar-a" asp-controller="Cinema" asp-action="Add">
+            <i class="left-menu-icon fas fa-solid fa-building"></i>
+        </a>
+    }
 </div>
