@@ -1,0 +1,33 @@
+﻿@using MovieGalleryApp.Core.Models.Cinema
+@model IEnumerable<CinemaAllVM>
+@{
+    int i = 0;
+}
+
+<div class="cinema-table-div">
+    <table class="rtable">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var actor in Model)
+            {
+                <tr>
+                    <td>@(i += 1)</td>
+                    <td><img class="cast-img" src="@actor.ImgUrl"></td>
+                    <td>@actor.Name</td>
+                    <td>@actor.Location</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (User.IsInRole(UserConstants.Roles.MovieAdministrator))
+    {
+        <a class="cast-featured-button cast-button" asp-controller="Cinema" asp-action="Add" >Add a cinema</a>
+    }
+</div>

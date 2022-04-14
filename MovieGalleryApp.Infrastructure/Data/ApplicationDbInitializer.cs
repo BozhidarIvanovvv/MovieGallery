@@ -1115,7 +1115,7 @@ namespace MovieGalleryApp.Infrastructure.Data
                         {
                             Name = "Cine Grand Park Center",
                             Location = "Sofia, 2 Arsenalski Blvd.",
-                            ImgUrl = "https://programata.bg/?p=31&l=1&c=1&id=3681#",
+                            ImgUrl = "http://programata.bg/img/gallery/place_3681.jpg",
                         },
                         new Cinema()
                         {

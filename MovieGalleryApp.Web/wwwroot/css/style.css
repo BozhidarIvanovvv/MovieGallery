@@ -444,6 +444,12 @@ body {
     margin: auto;
 }
 
+.cinema-table-div {
+    width: 600px;
+    padding-top: 120px;
+    margin: auto;
+}
+
 .cast-img {
     width: 150px;
     height: 200px;
