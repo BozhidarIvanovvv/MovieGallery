@@ -12,5 +12,7 @@ namespace MovieGalleryApp.Core.Contracts
         Task<IEnumerable<CinemaAllVM>> GetAllCinemas();
 
         Task AddCinema(CinemaAddVM model);
+
+        Task<string> GetCinemasAsStringById(Guid movieId);
     }
 }

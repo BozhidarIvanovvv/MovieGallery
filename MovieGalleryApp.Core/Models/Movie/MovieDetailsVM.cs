@@ -30,5 +30,8 @@ namespace MovieGalleryApp.Core.Models.Movie
 
         [Required]
         public string Countries { get; set; }
+
+        [Required]
+        public string Cinemas { get; set; }
     }
 }

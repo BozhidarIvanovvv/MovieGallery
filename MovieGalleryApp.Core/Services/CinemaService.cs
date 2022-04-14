@@ -53,5 +53,50 @@ namespace MovieGalleryApp.Core.Services
                 })
                 .OrderBy(a => a.Name)
                 .ToListAsync();
+
+        public async Task<string> GetCinemasAsStringById(Guid movieId)
+        {
+            var movie = await _repo.GetByIdAsync<Movie>(movieId);
+
+            if (movie == null)
+            {
+                throw new ArgumentException("This movie doesn't exist!");
+            }
+
+            var cinemas = await _repo
+                .All<MovieCinema>(mc => mc.MovieId == movieId)
+                .Select(mc => new CinemaAllVM
+                {
+                    Name = mc.Cinema.Name,
+                    Location = mc.Cinema.Location,
+                    ImgUrl = mc.Cinema.ImgUrl
+                })
+                .OrderBy(c => c.Name)
+                .ToListAsync();
+
+            if (cinemas.Count == 0)
+            {
+                throw new ArgumentException($"This movie: {movie.Title} doesn't have any cinemas!");
+            }
+
+            string result = String.Empty;
+
+            for (int i = 0; i < cinemas.Count; i++)
+            {
+                if (cinemas.Count - 1 == i)
+                {
+                    result += cinemas[i].Name;
+                    break;
+                }
+
+                result += cinemas[i].Name + "/";
+            }
+
+            result = result.TrimEnd();
+
+            result = result.Replace("/", ", ");
+
+            return result;
+        }
     }
 }
