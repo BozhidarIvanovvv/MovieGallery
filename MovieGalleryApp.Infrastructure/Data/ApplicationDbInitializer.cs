@@ -917,6 +917,7 @@ namespace MovieGalleryApp.Infrastructure.Data
                     });
                 }
 
+                //Countries
                 if (!context.Countries.Any())
                 {
                     context.Countries.AddRange(new List<Country>()
@@ -944,6 +945,7 @@ namespace MovieGalleryApp.Infrastructure.Data
                     });
                 }
 
+                //MovieCountries
                 if (!context.MovieCountries.Any())
                 {
                     context.MovieCountries.AddRange(new List<MovieCountry>() 
@@ -1089,6 +1091,157 @@ namespace MovieGalleryApp.Infrastructure.Data
                             MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
                             CountryId = context.Countries.First(a => a.CountryName == "Spain").CountryId
                         }
+                    });
+                }
+
+                //Cinemas
+                if (!context.Cinemas.Any())
+                {
+                    context.Cinemas.AddRange(new List<Cinema>()
+                    {
+                        new Cinema()
+                        {
+                            Name = "Arena Deluxe Bulgaria Mall",
+                            Location = "Sofia, 69 Bulgaria Blvd.",
+                            ImgUrl = "https://programata.bg/img/gallery/place_6983.jpg",
+                        },
+                        new Cinema()
+                        {
+                            Name = "Arena The Mall",
+                            Location = "Sofia, 115 Tsarigradsko shose Blvd.",
+                            ImgUrl = "https://programata.bg/img/gallery/place_5981.jpg",
+                        },
+                        new Cinema()
+                        {
+                            Name = "Cine Grand Park Center",
+                            Location = "Sofia, 2 Arsenalski Blvd.",
+                            ImgUrl = "https://programata.bg/?p=31&l=1&c=1&id=3681#",
+                        },
+                        new Cinema()
+                        {
+                            Name = "Cinema City Paradise",
+                            Location = "Sofia, 100 Cherni Vrah Blvd.",
+                            ImgUrl = "https://programata.bg/img/gallery/place_7037.jpg",
+                        }
+                    });
+                }
+
+                //MovieCinemas
+                if (!context.MovieCinemas.Any())
+                {
+                    context.MovieCinemas.AddRange(new List<MovieCinema>()
+                    {
+                        // The Lord of the Rings: The Fellowship of the Ring
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Fellowship of the Ring").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Arena Deluxe Bulgaria Mall").CinemaId
+                        },
+                        
+                        // Schindler's List
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Schindler's List").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Arena Deluxe Bulgaria Mall").CinemaId
+                        },
+
+                        // The Lord of the Rings: The Two Towers
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Two Towers").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Arena Deluxe Bulgaria Mall").CinemaId
+                        },
+
+                        // Turning Red
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Turning Red").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Arena Deluxe Bulgaria Mall").CinemaId
+                        },
+
+                        // The Godfather
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Godfather").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Arena The Mall").CinemaId
+                        },
+
+                        // The Dark Knight
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Dark Knight").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Arena The Mall").CinemaId
+                        },
+
+                        // Spider-Man: No Way Home
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Spider-Man: No Way Home").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Arena The Mall").CinemaId
+                        },
+
+                        // Star Wars: Episode V - The Empire Strikes Back
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Star Wars: Episode V - The Empire Strikes Back").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Arena The Mall").CinemaId
+                        },
+
+                        // Dune
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Dune").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Cine Grand Park Center").CinemaId
+                        },
+
+                        // The Lord of the Rings: The Return of the King
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Lord of the Rings: The Return of the King").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Cine Grand Park Center").CinemaId
+                        },
+
+                        // Uncharted
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Uncharted").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Cine Grand Park Center").CinemaId
+                        },
+
+                        // Pulp Fiction
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Pulp Fiction").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Cine Grand Park Center").CinemaId
+                        },
+
+                        // Morbius
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Morbius").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Cinema City Paradise").CinemaId
+                        },
+
+                        // The Batman
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Batman").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Cinema City Paradise").CinemaId
+                        },
+
+                        // Inception
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "Inception").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Cinema City Paradise").CinemaId
+                        },
+
+                        // The Good, the Bad and the Ugly
+                        new MovieCinema()
+                        {
+                            MovieId = context.Movies.First(m => m.Title == "The Good, the Bad and the Ugly").MovieId,
+                            CinemaId = context.Cinemas.First(a => a.Name == "Cinema City Paradise").CinemaId
+                        },
                     });
                 }
 
