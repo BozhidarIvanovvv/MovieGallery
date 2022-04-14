@@ -42,5 +42,6 @@ namespace MovieGalleryApp.Infrastructure.Data
         public ICollection<MovieGenre> MovieGenres { get; set; } = new List<MovieGenre>();
         public ICollection<MovieCountry> MovieCountries { get; set; } = new List<MovieCountry>();
         public ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();
+        public ICollection<MovieCinema> MovieCinemas { get; set; } = new List<MovieCinema>();
     }
 }
