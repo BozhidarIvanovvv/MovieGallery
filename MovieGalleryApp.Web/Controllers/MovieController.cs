@@ -32,11 +32,20 @@ namespace MovieGalleryApp.Web.Controllers
 
         public async Task<IActionResult> Details(Guid Id)
         {
-            var movie = await _movieService.GetMovieById(Id);
+            MovieDetailsVM movie = null;
+            try
+            {
+                movie = await _movieService.GetMovieById(Id);
 
-            movie.Genres = await _genreService.GetGenresAsStringById(Id);
-            movie.Countries = await _countryService.GetCountriesAsStringById(Id);
-            movie.Cinemas = await _cinemaService.GetCinemasAsStringById(Id);
+                movie.Genres = await _genreService.GetGenresAsStringById(Id);
+                movie.Countries = await _countryService.GetCountriesAsStringById(Id);
+                movie.Cinemas = await _cinemaService.GetCinemasAsStringById(Id);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return View(movie);
         }
@@ -44,7 +53,16 @@ namespace MovieGalleryApp.Web.Controllers
         [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
         public async Task<IActionResult> Edit(Guid Id)
         {
-            var movieForEdit = await _movieService.GetMovieForEdit(Id);
+            MovieEditVM movieForEdit = null;
+            try
+            {
+                movieForEdit = await _movieService.GetMovieForEdit(Id);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return View(movieForEdit);
         }
@@ -55,10 +73,19 @@ namespace MovieGalleryApp.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData[MessageConstants.WarningMessage] = MessageConstants.InvalidModelState;
                 return View(model);
             }
 
-            await _movieService.UpdateMovie(model);
+            try
+            {
+                await _movieService.UpdateMovie(model);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View(model);
+            }
 
             return Redirect($"/Movie/Details/{model.Id}");
         }
@@ -75,17 +102,38 @@ namespace MovieGalleryApp.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData[MessageConstants.WarningMessage] = MessageConstants.InvalidModelState;
                 return View(model);
             }
 
-            var id = await _movieService.CreateMovie(model);
+            Guid id = Guid.Empty;
+
+            try
+            {
+                id = await _movieService.CreateMovie(model);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View(model);
+            }
 
             return Redirect($"/Movie/Details/{id}");
         }
 
         public async Task<IActionResult> All()
         {
-            var movies = await _movieService.GetAllMovies();
+            IEnumerable<MovieTableVM> movies = null;
+
+            try
+            {
+                movies = await _movieService.GetAllMovies();
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return View(movies);
         }

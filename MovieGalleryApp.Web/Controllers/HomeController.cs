@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MovieGalleryApp.Core.Constants;
 using MovieGalleryApp.Core.Contracts;
 using MovieGalleryApp.Core.Models.Movie;
 using MovieGalleryApp.Web.Models;
@@ -23,8 +24,19 @@ namespace MovieGalleryApp.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var actionMovies = await _movieService.GetMoviesByGenre("Action");
-            var fantasyMovies = await _movieService.GetMoviesByGenre("Fantasy");
+            IEnumerable<MovieMainPageVM> actionMovies = null;
+            IEnumerable<MovieMainPageVM> fantasyMovies = null;
+
+            try
+            {
+                actionMovies = await _movieService.GetMoviesByGenre("Action");
+                fantasyMovies = await _movieService.GetMoviesByGenre("Fantasy");
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             var model = new List<IEnumerable<MovieMainPageVM>>() 
             {

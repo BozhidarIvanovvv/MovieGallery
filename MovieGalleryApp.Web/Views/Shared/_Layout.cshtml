@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/MovieGalleryApp.Web.styles.css" asp-append-version="true" />*@
+        <link rel="stylesheet" href="~/MovieGalleryApp.Web.styles.css" asp-append-version="true" />*@
 
+    <link rel="stylesheet" href="~/plugins/toastr/toastr.css"/>
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/details.css" asp-append-version="true" />
@@ -32,11 +33,12 @@
         @RenderBody()
     </div>
 
-    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
-
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/dropDownButton.js" asp-append-version="true"></script>
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/dropDownButton.js"></script>
+    <partial name="_UserMessages" />
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

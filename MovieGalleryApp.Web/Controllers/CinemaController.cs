@@ -17,9 +17,19 @@ namespace MovieGalleryApp.Web.Controllers
 
         public async Task<IActionResult> All()
         {
-            var actors = await _cinemaService.GetAllCinemas();
+            IEnumerable<CinemaAllVM> cinemas;
 
-            return View(actors);
+            try
+            {
+                cinemas = await _cinemaService.GetAllCinemas();
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
+
+            return View(cinemas);
         }
 
         [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
@@ -34,10 +44,19 @@ namespace MovieGalleryApp.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData[MessageConstants.WarningMessage] = MessageConstants.InvalidModelState;
                 return View(model);
             }
 
-            await _cinemaService.AddCinema(model);
+            try
+            {
+                await _cinemaService.AddCinema(model);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return Redirect($"/Cinema/All");
         }

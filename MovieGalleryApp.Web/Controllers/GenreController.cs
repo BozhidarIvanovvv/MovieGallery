@@ -17,8 +17,19 @@ namespace MovieGalleryApp.Web.Controllers
         
         public async Task<IActionResult> All()
         {
-            var genres = await _genreService.GetAllGenres();
-            
+            IEnumerable<GenreTableVM> genres = null;
+
+            try
+            {
+                genres = await _genreService.GetAllGenres();
+
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
+
             return View(genres);
         }
 
@@ -34,10 +45,19 @@ namespace MovieGalleryApp.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData[MessageConstants.WarningMessage] = MessageConstants.InvalidModelState;
                 return View(model);
             }
 
-            await _genreService.AddGenre(model);
+            try
+            {
+                await _genreService.AddGenre(model);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return Redirect($"/Genre/Genres");
         }

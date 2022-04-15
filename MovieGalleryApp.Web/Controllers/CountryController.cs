@@ -17,7 +17,18 @@ namespace MovieGalleryApp.Web.Controllers
 
         public async Task<IActionResult> All()
         {
-            var countries = await _countryService.GetAllCountries();
+            IEnumerable<CountryAllVM> countries = null;
+
+            try
+            {
+                countries = await _countryService.GetAllCountries();
+
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return View(countries);
         }
@@ -34,10 +45,19 @@ namespace MovieGalleryApp.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData[MessageConstants.WarningMessage] = MessageConstants.InvalidModelState;
                 return View(model);
             }
 
-            await _countryService.AddCountry(model);
+            try
+            {
+                await _countryService.AddCountry(model);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return Redirect($"/Country/Countries");
         }

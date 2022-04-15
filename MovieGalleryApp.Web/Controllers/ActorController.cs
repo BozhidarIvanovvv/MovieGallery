@@ -22,16 +22,36 @@ namespace MovieGalleryApp.Web.Controllers
 
         public async Task<IActionResult> Cast(Guid Id)
         {
-            var actors = await _actorService.GetAllActorsForAMovie(Id);
+            IEnumerable<ActorCastVM> actors = null;
+
+            try
+            {
+                actors = await _actorService.GetAllActorsForAMovie(Id);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             ViewBag.MovieId = Id;
-
+            
             return View(actors);
         }
 
         public async Task<IActionResult> All()
         {
-            var actors = await _actorService.GetAllActors();
+            IEnumerable<ActorCastVM> actors = null;
+
+            try
+            {
+                actors = await _actorService.GetAllActors();
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return View(actors);
         }
@@ -50,10 +70,19 @@ namespace MovieGalleryApp.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData[MessageConstants.WarningMessage] = MessageConstants.InvalidModelState;
                 return View(model);
             }
 
-            await _actorService.AddActor(model, Id);
+            try
+            {
+                await _actorService.AddActor(model, Id);
+            }
+            catch (ArgumentException ex)
+            {
+                ViewData[MessageConstants.ErrorMessage] = ex.Message;
+                return View();
+            }
 
             return Redirect($"/Actor/Cast/{Id}");
         }
