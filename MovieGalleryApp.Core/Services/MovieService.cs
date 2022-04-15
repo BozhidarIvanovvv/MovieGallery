@@ -103,7 +103,8 @@ namespace MovieGalleryApp.Core.Services
             return movie.MovieId;
         }
 
-        public async Task<IEnumerable<MovieTableVM>> GetAllMovies() => await _repo
+        public async Task<IEnumerable<MovieTableVM>> GetAllMovies() 
+            => await _repo
                 .All<Movie>()
                 .Select(m => new MovieTableVM
                 {
@@ -115,6 +116,20 @@ namespace MovieGalleryApp.Core.Services
                 })
                 .OrderBy(m => m.Title)
                 .ToListAsync();
+
+        public async Task<IEnumerable<MovieMainPageVM>> GetAllMoviesFromCountry(string country)
+            => await _repo
+                .All<MovieCountry>(m => m.Country.CountryName == country)
+                .Select(m => new MovieMainPageVM
+                {
+                    Id = m.Movie.MovieId,
+                    Title = m.Movie.Title,
+                    Description = m.Movie.Description,
+                    ImgUrl= m.Movie.ImgUrl
+                })
+                .Take(8)
+                .ToListAsync();
+        
 
         public async Task<MovieDetailsVM> GetMovieById(Guid id)
         {

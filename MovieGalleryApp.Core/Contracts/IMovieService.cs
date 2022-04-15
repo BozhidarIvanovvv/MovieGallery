@@ -20,5 +20,7 @@ namespace MovieGalleryApp.Core.Contracts
         Task<Guid> CreateMovie(MovieCreateVM model);
 
         Task<IEnumerable<MovieTableVM>> GetAllMovies();
+
+        Task<IEnumerable<MovieMainPageVM>> GetAllMoviesFromCountry(string country);
     }
 }

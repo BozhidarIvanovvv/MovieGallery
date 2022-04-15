@@ -2,17 +2,18 @@
 @model IEnumerable<IEnumerable<MovieMainPageVM>>
 @{
     ViewData["Title"] = "Movie Gallery";
-    var topMovie = Model.Last().OrderBy(a => Guid.NewGuid()).First();
+    var firstMoviePoster = Model.Last().OrderBy(a => Guid.NewGuid()).First();
+    var secondMoviePoster = Model.Last().OrderBy(a => Guid.NewGuid()).First();
 }
 
 <div class="content-container">
     <div class="featured-content"
-         style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('@topMovie.ImgUrl');">
-        <img class="featured-title" src="@topMovie.ImgUrl" alt="">
+         style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('@firstMoviePoster.ImgUrl');">
+        <img class="featured-title" src="@firstMoviePoster.ImgUrl" alt="">
         <p class="featured-desc">
-            @topMovie.Description
+            @firstMoviePoster.Description
         </p>
-        <a class="featured-button" asp-controller="Movie" asp-action="Details" asp-route-id="@topMovie.Id">Details</a>
+        <a class="featured-button" asp-controller="Movie" asp-action="Details" asp-route-id="@firstMoviePoster.Id">Details</a>
     </div>
     <div class="movie-list-container">
         <h1 class="movie-list-title">Action Movies</h1>
@@ -53,155 +54,24 @@
         </div>
     </div>
     <div class="featured-content"
-         style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/f-2.jpg');">
-        <img class="featured-title" src="~/img/f-t-2.png" alt="">
+         style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('@secondMoviePoster.ImgUrl');">
+        <img class="featured-title" src="@secondMoviePoster.ImgUrl" alt="">
         <p class="featured-desc">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor
-            deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis
-            minima voluptatibus incidunt. Accusamus, provident.
+            @secondMoviePoster.Description
         </p>
-        <button class="featured-button">WATCH</button>
+        <a class="featured-button" asp-controller="Movie" asp-action="Details" asp-route-id="@secondMoviePoster.Id">Details</a>
     </div>
     <div class="movie-list-container">
-        <h1 class="movie-list-title">NEW RELEASES</h1>
+        <h1 class="movie-list-title">Movies From US</h1>
         <div class="movie-list-wrapper">
-            <div class="movie-list">
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/1.jpeg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/2.jpeg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/15.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/3.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/4.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/5.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/1.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
+            <div class="movie-list" id="moviesUSContainer">
+                <button class="featured-button" id="moviesLoadButton">Load Movies From US</button>
             </div>
-            <i class="fas fa-chevron-right arrow"></i>
         </div>
-    </div>
-    <div class="movie-list-container">
-        <h1 class="movie-list-title">NEW RELEASES</h1>
-        <div class="movie-list-wrapper">
-            <div class="movie-list">
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/17.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/18.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/19.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/7.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/1.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/1.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-                <div class="movie-list-item">
-                    <img class="movie-list-item-img" src="~/img/1.jpg" alt="">
-                    <span class="movie-list-item-title">Her</span>
-                    <p class="movie-list-item-desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                        hic fugit similique accusantium.
-                    </p>
-                    <button class="movie-list-item-button">Watch</button>
-                </div>
-            </div>
-            <i class="fas fa-chevron-right arrow"></i>
-        </div>
-    </div>
+    </div>    
 </div>
+
+@section Scripts
+{
+    <script src="~/js/ajax.js"></script>
+}
