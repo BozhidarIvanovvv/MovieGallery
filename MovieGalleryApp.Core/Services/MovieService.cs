@@ -24,8 +24,8 @@ namespace MovieGalleryApp.Core.Services
         public async Task<Guid> CreateMovie(MovieCreateVM model)
         {
             var genres = model.Genres.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
-
             var countries = model.Countries.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
+            var cinemas = model.Cinemas.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
 
             var movie = new Movie
             {
@@ -72,6 +72,26 @@ namespace MovieGalleryApp.Core.Services
                 {
                     CountryId = dbCountry.CountryId,
                     Country = dbCountry,
+                    MovieId = movie.MovieId,
+                    Movie = movie,
+                });
+            }
+
+            foreach (var cinema in cinemas)
+            {
+                var dbCinema = await _repo
+                    .All<Cinema>(c => c.Name == cinema)
+                    .FirstOrDefaultAsync();
+
+                if (dbCinema == null)
+                {
+                    throw new ArgumentException("This cinema doesn't exist!");
+                }
+
+                movie.MovieCinemas.Add(new MovieCinema
+                {
+                    CinemaId = dbCinema.CinemaId,
+                    Cinema = dbCinema,
                     MovieId = movie.MovieId,
                     Movie = movie,
                 });
