@@ -17,7 +17,7 @@ namespace MovieGalleryApp.Web.Controllers
 
         public async Task<IActionResult> All()
         {
-            IEnumerable<CinemaAllVM> cinemas;
+            IEnumerable<CinemaAllVM> cinemas = null;
 
             try
             {

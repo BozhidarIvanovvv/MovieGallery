@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieGalleryApp.Web", "MovieGalleryApp.Web\MovieGalleryApp.Web.csproj", "{E3EE4566-BC7E-45AA-804A-7BC738315FD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieGalleryApp.Core", "MovieGalleryApp.Core\MovieGalleryApp.Core.csproj", "{F3767506-6DFD-4DCC-AA14-FAD26AA3C6E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieGalleryApp.Core", "MovieGalleryApp.Core\MovieGalleryApp.Core.csproj", "{F3767506-6DFD-4DCC-AA14-FAD26AA3C6E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieGalleryApp.Infrastructure", "MovieGalleryApp.Infrastructure\MovieGalleryApp.Infrastructure.csproj", "{9635F600-8BB9-4562-B5B3-F6D2B8C17498}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieGalleryApp.Infrastructure", "MovieGalleryApp.Infrastructure\MovieGalleryApp.Infrastructure.csproj", "{9635F600-8BB9-4562-B5B3-F6D2B8C17498}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieGalleryApp.Tests", "MovieGalleryApp.Tests\MovieGalleryApp.Tests.csproj", "{904164B0-68D2-4B7F-81D3-2703B69AB03C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9635F600-8BB9-4562-B5B3-F6D2B8C17498}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9635F600-8BB9-4562-B5B3-F6D2B8C17498}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9635F600-8BB9-4562-B5B3-F6D2B8C17498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{904164B0-68D2-4B7F-81D3-2703B69AB03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904164B0-68D2-4B7F-81D3-2703B69AB03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904164B0-68D2-4B7F-81D3-2703B69AB03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904164B0-68D2-4B7F-81D3-2703B69AB03C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
