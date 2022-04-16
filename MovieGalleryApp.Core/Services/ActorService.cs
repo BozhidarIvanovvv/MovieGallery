@@ -20,7 +20,7 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
-        public async Task<IEnumerable<ActorCastVM>> GetAllActorsForAMovie(Guid movieId) 
+        public async Task<ICollection<ActorCastVM>> GetAllActorsForAMovie(Guid movieId) 
             => await _repo
                 .All<MovieActor>(m => m.MovieId == movieId)
                 .Select(m => new ActorCastVM()
@@ -63,10 +63,10 @@ namespace MovieGalleryApp.Core.Services
             });
             
             await _repo.AddAsync(actor);
-            _repo.SaveChanges();
+            await _repo.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<ActorCastVM>> GetAllActors()
+        public async Task<ICollection<ActorCastVM>> GetAllActors()
             => await _repo
                 .All<Actor>()
                 .Select(a => new ActorCastVM()

@@ -98,7 +98,7 @@ namespace MovieGalleryApp.Core.Services
             }
 
             await _repo.AddAsync(movie);
-            _repo.SaveChanges();
+            await _repo.SaveChangesAsync();
 
             return movie.MovieId;
         }

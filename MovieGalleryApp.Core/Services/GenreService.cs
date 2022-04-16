@@ -91,7 +91,7 @@ namespace MovieGalleryApp.Core.Services
             };
 
             await _repo.AddAsync(genre);
-            _repo.SaveChanges();
+            await _repo.SaveChangesAsync();
         }
     }
 }

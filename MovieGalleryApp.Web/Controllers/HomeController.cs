@@ -24,14 +24,10 @@ namespace MovieGalleryApp.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var model = new List<IEnumerable<MovieMainPageVM>>();
+
             IEnumerable<MovieMainPageVM> actionMovies = null;
             IEnumerable<MovieMainPageVM> fantasyMovies = null;
-
-            var model = new List<IEnumerable<MovieMainPageVM>>()
-            {
-                actionMovies.OrderBy(a => Guid.NewGuid()).ToList(),
-                fantasyMovies.OrderBy(a => Guid.NewGuid()).ToList()
-            };
 
             try
             {
@@ -43,6 +39,9 @@ namespace MovieGalleryApp.Web.Controllers
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
                 return View(model);
             }
+
+            model.Add(actionMovies.OrderBy(a => Guid.NewGuid()).ToList());
+            model.Add(fantasyMovies.OrderBy(a => Guid.NewGuid()).ToList());
 
             return View(model);
         }
