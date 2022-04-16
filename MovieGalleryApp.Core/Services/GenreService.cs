@@ -51,7 +51,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (genres.Count == 0)
             {
-                throw new ArgumentException($"This movie: {movie.Title} doesn't have any genres!");
+                throw new ArgumentException($"The movie: {movie.Title} doesn't have any genres!");
             }
 
             string result = String.Empty;

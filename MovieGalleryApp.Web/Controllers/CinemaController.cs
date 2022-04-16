@@ -26,7 +26,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(cinemas);
             }
 
             return View(cinemas);
@@ -55,7 +55,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(model);
             }
 
             return Redirect($"/Cinema/All");

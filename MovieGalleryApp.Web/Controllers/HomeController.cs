@@ -27,6 +27,12 @@ namespace MovieGalleryApp.Web.Controllers
             IEnumerable<MovieMainPageVM> actionMovies = null;
             IEnumerable<MovieMainPageVM> fantasyMovies = null;
 
+            var model = new List<IEnumerable<MovieMainPageVM>>()
+            {
+                actionMovies.OrderBy(a => Guid.NewGuid()).ToList(),
+                fantasyMovies.OrderBy(a => Guid.NewGuid()).ToList()
+            };
+
             try
             {
                 actionMovies = await _movieService.GetMoviesByGenre("Action");
@@ -35,14 +41,8 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(model);
             }
-
-            var model = new List<IEnumerable<MovieMainPageVM>>() 
-            {
-                actionMovies.OrderBy(a => Guid.NewGuid()).ToList(),
-                fantasyMovies.OrderBy(a => Guid.NewGuid()).ToList()
-            };
 
             return View(model);
         }
@@ -69,7 +69,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(movies);
             }
 
             return Json(movies);

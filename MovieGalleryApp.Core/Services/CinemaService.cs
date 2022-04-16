@@ -76,7 +76,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (cinemas.Count == 0)
             {
-                throw new ArgumentException($"This movie: {movie.Title} doesn't have any cinemas!");
+                throw new ArgumentException($"The movie: {movie.Title} doesn't have any cinemas!");
             }
 
             string result = String.Empty;

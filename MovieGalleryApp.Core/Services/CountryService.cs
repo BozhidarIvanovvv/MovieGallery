@@ -73,7 +73,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (countries.Count == 0)
             {
-                throw new ArgumentException($"This movie: {movie.Title} doesn't have any countries!");
+                throw new ArgumentException($"The movie: {movie.Title} doesn't have any countries!");
             }
 
             string result = String.Empty;

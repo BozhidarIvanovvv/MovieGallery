@@ -31,7 +31,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(actors);
             }
 
             ViewBag.MovieId = Id;
@@ -50,7 +50,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(actors);
             }
 
             return View(actors);
@@ -81,7 +81,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(model);
             }
 
             if (Id == Guid.Empty)

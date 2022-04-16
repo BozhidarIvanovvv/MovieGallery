@@ -44,7 +44,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(movie);
             }
 
             return View(movie);
@@ -61,7 +61,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(movieForEdit);
             }
 
             return View(movieForEdit);
@@ -132,7 +132,7 @@ namespace MovieGalleryApp.Web.Controllers
             catch (ArgumentException ex)
             {
                 ViewData[MessageConstants.ErrorMessage] = ex.Message;
-                return View();
+                return View(movies);
             }
 
             return View(movies);
