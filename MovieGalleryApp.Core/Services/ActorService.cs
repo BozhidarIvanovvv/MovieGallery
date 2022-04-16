@@ -49,6 +49,13 @@ namespace MovieGalleryApp.Core.Services
                 ImgUrl = model.ImgUrl
             };
 
+            if (movieId == Guid.Empty)
+            {
+                await _repo.AddAsync(actor);
+                _repo.SaveChanges();
+                return;
+            }
+
             actor.MovieActors.Add(new MovieActor
             {
                 ActorId = actor.ActorId,

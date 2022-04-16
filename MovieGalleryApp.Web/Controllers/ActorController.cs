@@ -84,6 +84,11 @@ namespace MovieGalleryApp.Web.Controllers
                 return View();
             }
 
+            if (Id == Guid.Empty)
+            {
+                return Redirect($"/Actor/All");
+            }
+
             return Redirect($"/Actor/Cast/{Id}");
         }
     }
