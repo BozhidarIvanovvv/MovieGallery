@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MovieGalleryApp.Core.Constants;
 using MovieGalleryApp.Core.Contracts;
 using MovieGalleryApp.Core.Models.Genre;
 using MovieGalleryApp.Infrastructure.Data;
@@ -36,7 +37,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (movie == null)
             {
-                throw new ArgumentException("This movie doesn't exist!");
+                throw new ArgumentException(ServiceConstants.GenreServiceConstants.GenreDoesNotExsist);
             }
 
             var genres = await _repo
@@ -51,7 +52,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (genres.Count == 0)
             {
-                throw new ArgumentException($"The movie: {movie.Title} doesn't have any genres!");
+                throw new ArgumentException(ServiceConstants.GenreServiceConstants.MovieDoesNotHaveAnyGenres, movie.Title);
             }
 
             string result = String.Empty;
@@ -82,7 +83,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (dbGenre != null)
             {
-                throw new ArgumentException("This genre already exists!");
+                throw new ArgumentException(ServiceConstants.GenreServiceConstants.GenreAlreadyExsist);
             }
 
             var genre = new Genre()

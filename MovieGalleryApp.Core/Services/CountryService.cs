@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MovieGalleryApp.Core.Constants;
 using MovieGalleryApp.Core.Contracts;
 using MovieGalleryApp.Core.Models.Country;
 using MovieGalleryApp.Infrastructure.Data;
@@ -28,7 +29,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (dbCountry != null)
             {
-                throw new ArgumentException("This country already exists!");
+                throw new ArgumentException(ServiceConstants.CountryServiceConstants.CountryAlreadyExsist);
             }
 
             var country = new Country()
@@ -58,7 +59,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (movie == null)
             {
-                throw new ArgumentException("This movie doesn't exist!");
+                throw new ArgumentException(ServiceConstants.MovieServiceConstants.MovieDoesNotExsist);
             }
 
             var countries = await _repo
@@ -73,7 +74,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (countries.Count == 0)
             {
-                throw new ArgumentException($"The movie: {movie.Title} doesn't have any countries!");
+                throw new ArgumentException(ServiceConstants.CountryServiceConstants.MovieDoesNotHaveAnyCountries, movie.Title);
             }
 
             string result = String.Empty;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MovieGalleryApp.Core.Constants;
 using MovieGalleryApp.Core.Contracts;
 using MovieGalleryApp.Core.Enums;
 using MovieGalleryApp.Core.Models.Movie;
@@ -29,22 +30,22 @@ namespace MovieGalleryApp.Core.Services
 
             if (dbMovie != null)
             {
-                throw new ArgumentException("This movie already exists!");
+                throw new ArgumentException(ServiceConstants.MovieServiceConstants.MovieDoesNotExsist);
             }
 
             if (model.Genres == null)
             {
-                throw new ArgumentException("This movie has no genres!");
+                throw new ArgumentException(ServiceConstants.MovieServiceConstants.MovieHasNoGenres);
             }
 
             if (model.Countries == null)
             {
-                throw new ArgumentException("This movie has no countries!");
+                throw new ArgumentException(ServiceConstants.MovieServiceConstants.MovieHasNoCountries);
             }
 
             if (model.Cinemas == null)
             {
-                throw new ArgumentException("This movie has no cinemas!");
+                throw new ArgumentException(ServiceConstants.MovieServiceConstants.MovieHasNoCinemas);
             }
 
             var genres = model.Genres.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
@@ -69,7 +70,7 @@ namespace MovieGalleryApp.Core.Services
 
                 if (dbGenre == null)
                 {
-                    throw new ArgumentException("This genre doesn't exist!");
+                    throw new ArgumentException(ServiceConstants.GenreServiceConstants.GenreDoesNotExsist);
                 }
 
                 movie.MovieGenres.Add(new MovieGenre 

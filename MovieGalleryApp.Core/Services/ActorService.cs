@@ -3,6 +3,7 @@ using MovieGalleryApp.Core.Contracts;
 using MovieGalleryApp.Core.Models.Actor;
 using MovieGalleryApp.Infrastructure.Data;
 using MovieGalleryApp.Infrastructure.Data.Repositories;
+using MovieGalleryApp.Core.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (dbActor != null)
             {
-                throw new ArgumentException("This actor already exists!");
+                throw new ArgumentException(ServiceConstants.ActorServiceConstants.ActorAlreadyExsists);
             }
 
             var actor = new Actor()

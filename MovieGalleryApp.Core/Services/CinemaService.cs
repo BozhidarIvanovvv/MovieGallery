@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MovieGalleryApp.Core.Constants;
 using MovieGalleryApp.Core.Contracts;
 using MovieGalleryApp.Core.Models.Cinema;
 using MovieGalleryApp.Infrastructure.Data;
@@ -28,7 +29,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (dbCinema != null)
             {
-                throw new ArgumentException("This cinema already exists!");
+                throw new ArgumentException(ServiceConstants.CinemaServiceConstants.CinemaAlreadyExsist);
             }
 
             var cinema = new Cinema()
@@ -60,7 +61,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (movie == null)
             {
-                throw new ArgumentException("This movie doesn't exist!");
+                throw new ArgumentException(ServiceConstants.MovieServiceConstants.MovieDoesNotExsist);
             }
 
             var cinemas = await _repo
@@ -76,7 +77,7 @@ namespace MovieGalleryApp.Core.Services
 
             if (cinemas.Count == 0)
             {
-                throw new ArgumentException($"The movie: {movie.Title} doesn't have any cinemas!");
+                throw new ArgumentException(ServiceConstants.CinemaServiceConstants.MovieDoesNotHaveAnyCinemas, movie.Title);
             }
 
             string result = String.Empty;
