@@ -59,7 +59,7 @@ namespace MovieGalleryApp.Web.Controllers
                 return View(model);
             }
 
-            return Redirect($"/Country/Countries");
+            return Redirect($"/Country/All");
         }
     }
 }

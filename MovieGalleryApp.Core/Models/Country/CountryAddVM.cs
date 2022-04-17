@@ -16,7 +16,7 @@ namespace MovieGalleryApp.Core.Models.Country
         public string CountryName { get; set; }
 
         [Required]
-        [StringLength(DatabaseConstants.CountryEntityConstants.ImgUrlMaxLength, MinimumLength = DatabaseConstants.CountryEntityConstants.ImgUrlMaxLength,
+        [StringLength(DatabaseConstants.CountryEntityConstants.ImgUrlMaxLength,
             ErrorMessage = DatabaseConstants.ErrorMessageConstants.CountryMessageConstants.ImgUrlMaxLength)]
         public string ImgUrl { get; set; }
     }
