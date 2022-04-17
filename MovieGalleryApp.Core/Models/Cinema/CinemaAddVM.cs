@@ -21,7 +21,7 @@ namespace MovieGalleryApp.Core.Models.Cinema
         public string ImgUrl { get; set; }
 
         [Required]
-        [StringLength(DatabaseConstants.CinemaEntityConstants.LocationNameMaxLength, MinimumLength = DatabaseConstants.CinemaEntityConstants.LocationNameMaxLength,
+        [StringLength(DatabaseConstants.CinemaEntityConstants.LocationNameMaxLength, MinimumLength = DatabaseConstants.CinemaEntityConstants.LocationNameMinLength,
             ErrorMessage = DatabaseConstants.ErrorMessageConstants.CinemaMessageConstants.LocationMaxLength)]
         public string Location { get; set; }
     }
