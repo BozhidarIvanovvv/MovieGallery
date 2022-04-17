@@ -42,7 +42,7 @@ namespace MovieGalleryApp.Core.Services
             await _repo.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<CinemaAllVM>> GetAllCinemas()
+        public async Task<ICollection<CinemaAllVM>> GetAllCinemas()
             => await _repo
                 .All<Cinema>()
                 .Select(a => new CinemaAllVM()

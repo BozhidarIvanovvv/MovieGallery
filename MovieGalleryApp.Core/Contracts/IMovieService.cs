@@ -9,12 +9,12 @@ namespace MovieGalleryApp.Core.Contracts
 {
     public interface IMovieService 
     {
-        Task<IEnumerable<MovieMainPageVM>> GetMoviesByGenre(string genre);
+        Task<ICollection<MovieMainPageVM>> GetMoviesByGenre(string genre);
         Task<MovieDetailsVM> GetMovieById(Guid id);
         Task<MovieEditVM> GetMovieForEdit(Guid id);
         Task<bool> UpdateMovie(MovieEditVM model);
-        Task<Guid> CreateMovie(MovieCreateVM model);
-        Task<IEnumerable<MovieTableVM>> GetAllMovies();
-        Task<IEnumerable<MovieMainPageVM>> GetAllMoviesFromCountry(string country);
+        Task<Guid> AddMovie(MovieAddVM model);
+        Task<ICollection<MovieTableVM>> GetAllMovies();
+        Task<ICollection<MovieMainPageVM>> GetAllMoviesFromCountry(string country);
     }
 }

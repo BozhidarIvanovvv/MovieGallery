@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieGalleryApp.Core.Models.Movie
 {
-    public class MovieCreateVM
+    public class MovieAddVM
     {
         [Required]
         [StringLength(DatabaseConstants.MovieEntityConstants.TitleMaxLength, MinimumLength = DatabaseConstants.MovieEntityConstants.TitleMinLength,

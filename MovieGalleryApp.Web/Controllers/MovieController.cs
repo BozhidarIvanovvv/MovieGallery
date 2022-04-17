@@ -98,7 +98,7 @@ namespace MovieGalleryApp.Web.Controllers
 
         [HttpPost]
         [Authorize(Roles = UserConstants.Roles.MovieAdministrator)]
-        public async Task<IActionResult> Add(MovieCreateVM model)
+        public async Task<IActionResult> Add(MovieAddVM model)
         {
             if (!ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace MovieGalleryApp.Web.Controllers
 
             try
             {
-                id = await _movieService.CreateMovie(model);
+                id = await _movieService.AddMovie(model);
             }
             catch (ArgumentException ex)
             {

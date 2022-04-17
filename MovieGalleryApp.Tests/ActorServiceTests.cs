@@ -124,6 +124,30 @@ namespace MovieGalleryApp.Tests
         }
 
         [Test]
+        public async Task AddActorThrowsWhenActorWithTheSameNameIsPresent()
+        {
+            var _actorService = _serviceProvider.GetService<IActorService>();
+
+            var actor = new ActorCastAddVM()
+            {
+                FirstName = "Test",
+                LastName = "Testov",
+                ImgUrl = ""
+            };
+
+            var actor2 = new ActorCastAddVM()
+            {
+                FirstName = "Test",
+                LastName = "Testov",
+                ImgUrl = ""
+            };
+
+            await _actorService.AddActor(actor, Guid.Parse("d40ca362-e32a-4c4f-88bd-54c3f434c953"));
+            
+            Assert.CatchAsync<ArgumentException>(async () => await _actorService.AddActor(actor2, Guid.Parse("d40ca362-e32a-4c4f-88bd-54c3f434c953")), "This actor already exists!");
+        }
+
+        [Test]
         public async Task GetAllActorsReturnsDataProperly()
         {
             var _actorService = _serviceProvider.GetService<IActorService>();

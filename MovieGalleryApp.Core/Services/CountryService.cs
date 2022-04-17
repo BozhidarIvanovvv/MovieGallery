@@ -41,7 +41,7 @@ namespace MovieGalleryApp.Core.Services
             await _repo.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<CountryAllVM>> GetAllCountries()
+        public async Task<ICollection<CountryAllVM>> GetAllCountries()
             => await _repo
                 .All<Country>()
                 .Select(c => new CountryAllVM()

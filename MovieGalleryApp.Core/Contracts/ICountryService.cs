@@ -10,7 +10,7 @@ namespace MovieGalleryApp.Core.Contracts
     public interface ICountryService
     {
         Task<string> GetCountriesAsStringById(Guid movieId);
-        Task<IEnumerable<CountryAllVM>> GetAllCountries();
+        Task<ICollection<CountryAllVM>> GetAllCountries();
         Task AddCountry(CountryAddVM model);
     }
 }

@@ -13,6 +13,6 @@ namespace MovieGalleryApp.Core.Models.Genre
         [Required]
         [StringLength(DatabaseConstants.GenreEntityConstants.TitleMaxLength, MinimumLength = DatabaseConstants.GenreEntityConstants.TitleMinxLength,
             ErrorMessage = DatabaseConstants.ErrorMessageConstants.GenreMessageConstants.NameMaxLength)]
-        public string Title { get; set; }
+        public string GenreTitle { get; set; }
     }
 }

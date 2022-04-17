@@ -20,7 +20,7 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
-        public async Task<IEnumerable<GenreTableVM>> GetAllGenres()
+        public async Task<ICollection<GenreTableVM>> GetAllGenres()
             =>  await _repo
                     .All<Genre>()
                     .Select(g => new GenreTableVM
@@ -77,7 +77,7 @@ namespace MovieGalleryApp.Core.Services
         public async Task AddGenre(GenreAddVM model)
         {
             var dbGenre = await _repo
-                .All<Genre>(a => a.GenreTitle == model.Title)
+                .All<Genre>(a => a.GenreTitle == model.GenreTitle)
                 .FirstOrDefaultAsync();
 
             if (dbGenre != null)
@@ -87,7 +87,7 @@ namespace MovieGalleryApp.Core.Services
 
             var genre = new Genre()
             {
-                GenreTitle = model.Title,
+                GenreTitle = model.GenreTitle,
             };
 
             await _repo.AddAsync(genre);

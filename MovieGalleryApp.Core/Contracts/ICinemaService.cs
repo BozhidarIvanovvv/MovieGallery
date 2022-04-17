@@ -9,7 +9,7 @@ namespace MovieGalleryApp.Core.Contracts
 {
     public interface ICinemaService
     {
-        Task<IEnumerable<CinemaAllVM>> GetAllCinemas();
+        Task<ICollection<CinemaAllVM>> GetAllCinemas();
         Task AddCinema(CinemaAddVM model);
         Task<string> GetCinemasAsStringById(Guid movieId);
     }

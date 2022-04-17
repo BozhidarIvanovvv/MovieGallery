@@ -21,8 +21,32 @@ namespace MovieGalleryApp.Core.Services
             _repo = repo;
         }
 
-        public async Task<Guid> CreateMovie(MovieCreateVM model)
+        public async Task<Guid> AddMovie(MovieAddVM model)
         {
+            var dbMovie = await _repo
+                .All<Movie>(a => a.Title == model.Title)
+                .FirstOrDefaultAsync();
+
+            if (dbMovie != null)
+            {
+                throw new ArgumentException("This movie already exists!");
+            }
+
+            if (model.Genres == null)
+            {
+                throw new ArgumentException("This movie has no genres!");
+            }
+
+            if (model.Countries == null)
+            {
+                throw new ArgumentException("This movie has no countries!");
+            }
+
+            if (model.Cinemas == null)
+            {
+                throw new ArgumentException("This movie has no cinemas!");
+            }
+
             var genres = model.Genres.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
             var countries = model.Countries.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
             var cinemas = model.Cinemas.TrimEnd().Split(", ", StringSplitOptions.RemoveEmptyEntries);
@@ -103,7 +127,7 @@ namespace MovieGalleryApp.Core.Services
             return movie.MovieId;
         }
 
-        public async Task<IEnumerable<MovieTableVM>> GetAllMovies() 
+        public async Task<ICollection<MovieTableVM>> GetAllMovies() 
             => await _repo
                 .All<Movie>()
                 .Select(m => new MovieTableVM
@@ -117,7 +141,7 @@ namespace MovieGalleryApp.Core.Services
                 .OrderBy(m => m.Title)
                 .ToListAsync();
 
-        public async Task<IEnumerable<MovieMainPageVM>> GetAllMoviesFromCountry(string country)
+        public async Task<ICollection<MovieMainPageVM>> GetAllMoviesFromCountry(string country)
             => await _repo
                 .All<MovieCountry>(m => m.Country.CountryName == country)
                 .Select(m => new MovieMainPageVM
@@ -167,7 +191,7 @@ namespace MovieGalleryApp.Core.Services
             };
         }
 
-        public async Task<IEnumerable<MovieMainPageVM>> GetMoviesByGenre(string genreTitle)
+        public async Task<ICollection<MovieMainPageVM>> GetMoviesByGenre(string genreTitle)
         {
             if (!Enum.IsDefined(typeof(Enums.GenreEnum), genreTitle))
             {
@@ -177,11 +201,6 @@ namespace MovieGalleryApp.Core.Services
             var genre = await _repo
                 .All<Genre>(g => g.GenreTitle == genreTitle)
                 .FirstOrDefaultAsync();
-
-            if (genre == null) 
-            {
-                throw new ArgumentException("This genre doesn't exist!");
-            }
 
             var movies = await _repo
                 .All<MovieGenre>(mg => mg.GenreId == genre.GenreId)
